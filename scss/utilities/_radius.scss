@@ -1,0 +1,17 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+/* ── Radius Utilities ── */
+.radius {
+    &-box {
+        border-radius: 0 !important;
+    }
+
+    &-rounded {
+        border-radius: radius(md) !important;
+    }
+
+    &-pill {
+        border-radius: radius(2xl) !important;
+    }
+}

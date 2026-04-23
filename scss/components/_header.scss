@@ -1,0 +1,138 @@
+@use "../variables" as *;
+@use "../functions" as *;
+@use "../mixins" as *;
+
+
+header {
+    height: 54px;
+    background: color(white);
+    border-bottom: 1px solid color(border);
+    z-index: 100;
+
+    nav {
+        @include flex-between;
+        position: relative;
+    }
+
+    .nav {
+        /* ── LOGO ── */
+        &-logo {
+            @include flex-horizontal-center;
+            width: 40px;
+            height: auto;
+
+            img {
+                max-height: 100%;
+                object-fit: contain;
+                border-radius: radius(sm);
+            }
+        }
+
+        /* ── LINKS ── */
+        &-links {
+            @include flex-vertical-center;
+            gap: gap(md);
+        }
+
+        /* ── LINK ── */
+        &-link {
+            position: relative;
+            @include flex-vertical-center;
+            gap: gap(md);
+
+            padding: 4px 12px;
+            font-size: font-size(0.8125rem);
+            font-weight: font-weight(medium);
+            border-radius: radius(lg);
+            color: #171717;
+            text-decoration: none;
+
+            cursor: pointer;
+            transition: all 0.4s;
+
+            &:hover {
+                transform: translateY(-2px);
+                background-color: color(hover);
+                color: color(primary);
+            }
+
+            svg {
+                width: 15px;
+                height: 15px;
+                stroke: currentColor;
+                flex-shrink: 0;
+            }
+
+            // style for when the user has not logged in yet (button look for link)
+            &.sign-in {
+                border: 1px solid color(primary);
+                background: transparent;
+                color: color(primary);
+
+                &:hover {
+                    background-color: color(primary);
+                    color: color(white);
+                    transform: translateY(-1px);
+                }
+            }
+        }
+    }
+}
+
+/* ───────────────────────────── HEADER with Sidebar ───────────────────────────── */
+.hamburger {
+    background: none;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    @include flex-center;
+
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    &:hover {
+        background: color(hover);
+
+        svg rect,
+        svg line {
+            stroke: color(primary);
+        }
+    }
+}
+
+
+
+/* ───────────────────────────── SEMI-RESPONSIVE ───────────────────────────── */
+@media (max-width: 960px) {
+
+    .hamburger {
+        position: relative;
+        z-index: 1001; // above sidebar overlay
+    }
+
+    .nav-links {
+        gap: gap(sm);
+    }
+
+    .nav-link {
+        padding: 6px 10px;
+
+        span {
+            display: none; // hide text on mobile
+        }
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    .nav-link.sign-in {
+        padding: 6px 10px;
+    }
+}

@@ -1,0 +1,30 @@
+@use "../variables" as *;
+@use "../functions" as *;
+@use "../mixins" as *;
+
+
+.card {
+    background-color: color(white);
+    // border: 1px solid color(border);
+    border-radius: radius(lg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    padding: gap(2xl);
+
+    .card-logo {
+        width: 50px;
+        height: auto;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        
+        img {
+            border-radius: 4px;
+        }
+    }
+
+    &-title {
+        @include flex-horizontal-center;
+        font-size: font-size(xl);
+        font-weight: font-weight(semi-bold);
+        margin: 0 0 20px 0;
+    }
+}

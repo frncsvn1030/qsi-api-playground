@@ -1,0 +1,256 @@
+@use "../variables" as *;
+@use "../functions" as *;
+@use "../mixins" as *;
+
+
+/* ───────────────────────────── LAYOUT WRAPPER ───────────────────────────── */
+.layout-wrap {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+
+    header {
+        .nav-logo {
+            display: none; // remove the qx-logo in the header when .layout-wrap is detected
+        }
+    }
+}
+
+/* ───────────────────────────── SIDEBAR ───────────────────────────── */
+.sidebar {
+    height: 100vh;
+    width: 0;
+    min-width: 0;
+    overflow: hidden;
+    background: color(white);
+    border-right: 1px solid color(border);
+    flex-shrink: 0;
+    transition: width 0.24s ease, min-width 0.24s ease;
+
+    &.open {
+        width: 280px;
+        min-width: 280px;
+    }
+
+    @media (max-width: 768px) {
+        position: absolute;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+
+        &.open {
+            width: 400px;
+            min-width: 400px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        &.open {
+            width: 100%;
+            min-width: 100%;
+        }
+    }
+
+    &-nav {
+        width: 280px;
+        padding: 0;
+
+        @media (max-width: 768px) {
+            width: 400px;
+        }
+
+        @media (max-width: 600px) {
+            width: 100%;
+        }
+    }
+
+    &-brand {
+        @include flex-vertical-center;
+        gap: gap(sm);
+        padding: 20px;
+
+        img {
+            border-radius: 4px;
+        }
+    }
+
+    h4 {
+        font-family: $inter-regular;
+        font-size: font-size(base);
+        font-weight: font-weight(semi-bold);
+        color: color(primary);
+        padding: 0 8px;
+        margin: 0;
+
+        span {
+            display: block;
+            font-size: font-size(sm);
+            font-weight: font-weight(medium);
+            color: gray(500);
+            letter-spacing: 0.4px;
+
+            // 🔑 truncate title
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+}
+
+/* ───────────────────────────── SIDEBAR SECTION ───────────────────────────── */
+.s-section {
+    @include reset-list;
+    margin-top: 10px;
+
+    li {
+        list-style: none;
+    }
+}
+
+.s-item {
+    @include flex-vertical-center;
+    width: 100%;
+    padding: 9px 20px;
+    font-size: font-size(0.8125rem);
+    font-weight: font-weight(medium);
+    color: text(tertiary);
+
+    cursor: pointer;
+    position: relative;
+    transition: background 0.12s, color 0.12s;
+
+    // 🔑 REQUIRED for truncation in flex
+    min-width: 0;
+
+    /* states */
+    &:hover {
+        background: color(hover);
+        color: color(primary);
+        text-decoration: none;
+    }
+
+    &.active {
+        background: color(hover);
+        color: text(primary);
+        font-weight: font-weight(semi-bold);
+        box-shadow: inset 2.5px 0 0 color(primary);
+    }
+
+    /* ── s-item that has icon ── */
+    .left {
+        @include flex-vertical-center;
+        gap: 10px;
+        min-width: 0;
+        flex: 1;
+
+        img {
+            width: 18px;
+            height: auto;
+            flex-shrink: 0;
+        }
+    }
+
+    /* ── pushes 'chevron-down' icon at right ── */
+    [uk-icon] {
+        margin-left: auto;
+        flex-shrink: 0;
+        transition: transform 0.2s ease;
+    }
+
+    /* ── method (get, post, put, delete) ── */
+    .method {
+        font-weight: 700;
+        font-size: 0.75rem;
+        width: 40px;
+        letter-spacing: 0.5px;
+        flex-shrink: 0;
+
+        &.get {
+            color: #6366f1;
+        }
+
+        &.post {
+            color: #22c55e;
+        }
+
+        &.put {
+            color: #f59e0b;
+        }
+
+        &.delete {
+            color: #ef4444;
+        }
+    }
+
+    /* ── text truncate ── */
+    .label {
+        @include text-truncate;
+    }
+}
+
+/* ── UIKit accordion overrides ── */
+.uk-accordion {
+    &-title {
+        &::before {
+            display: none !important;
+        }
+
+        // truncate titles
+        span:not([uk-icon]) {
+            @include text-truncate;
+        }
+    }
+
+    &-content {
+        margin-top: 0;
+
+        // nested indentation
+        [uk-accordion]>li,
+        .nested & {
+            padding-left: 28px;
+        }
+    }
+}
+
+/* ── remove spacing between accordion items ── */
+[uk-accordion]> :nth-child(n+2) {
+    margin-top: 0;
+}
+
+/* ── chevron down rotation ── */
+.uk-open>.uk-accordion-title {
+    [uk-icon="chevron-down"], 
+    .chevron {
+        transform: rotate(180deg);
+    }
+}
+
+/* ── body / main content ── */
+.body-wrap {
+    @include flex-column;
+    flex: 1;
+    overflow: hidden;
+    min-width: 0;
+    height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem 0;
+}
+
+
+.sidebar-close {
+    display: none;
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: color(primary);
+    padding: 4px;
+
+    @media (max-width: 768px) {
+        display: flex;
+    }
+}

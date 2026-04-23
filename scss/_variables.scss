@@ -1,0 +1,120 @@
+@use "sass:map";
+
+/* ── Font Families ── */
+$inter-extra-light: 'Inter ExtraLight', 'Inter', sans-serif;
+$inter-light: 'Inter Light', 'Inter', sans-serif;
+$inter-regular: 'Inter Regular', 'Inter', sans-serif;
+$inter-medium: 'Inter Medium', 'Inter', sans-serif;
+$inter-semi-bold: 'Inter SemiBold', 'Inter', sans-serif;
+$inter-bold: 'Inter Bold', 'Inter', sans-serif;
+$inter-extra-bold: 'Inter ExtraBold', 'Inter', sans-serif;
+$inter-black: 'Inter Black', 'Inter', sans-serif;
+
+/* ── Font Weights ── */
+$font-weights: (
+  extra-light: 200,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semi-bold: 600,
+  bold: 700,
+  extra-bold: 800,
+  black: 900
+);
+
+/* ── Font Sizes ── */
+$font-sizes: (
+  xs: 0.75rem,   // 12px
+  sm: 0.875rem,  // 14px
+  base: 1rem,    // 16px
+  lg: 1.125rem,  // 18px
+  xl: 1.25rem,   // 20px
+  2xl: 1.5rem,   // 24px
+  3xl: 1.875rem, // 30px
+  4xl: 2.25rem,  // 36px
+  5xl: 3rem,     // 48px
+  6xl: 3.75rem   // 60px
+);
+
+/* ── Spacing ── */
+$gaps: (
+  xs: 0.125rem,  // 2px
+  sm: 0.25rem,   // 4px
+  md: 0.375rem,  // 6px
+  lg: 0.5rem,    // 8px
+  xl: 0.75rem,   // 12px
+  2xl: 1rem,     // 16px
+  3xl: 1.5rem,   // 24px
+  4xl: 2rem,     // 32px
+  5xl: 3rem      // 48px
+);
+
+/* ── Radius ── */
+$radius: (
+  xs: 0.125rem,  // 2px
+  sm: 0.25rem,   // 4px
+  md: 0.375rem,  // 6px
+  lg: 0.5rem,    // 8px
+  xl: 0.75rem,   // 12px
+  2xl: 1rem,     // 16px
+  3xl: 1.5rem,   // 24px
+  4xl: 2rem,     // 32px
+  5xl: 3rem      // 48px
+);
+
+/* ── Colors ── */
+$grays: (
+  50: #F9FAFB,
+  100: #F3F4F6,
+  200: #E5E7EB,
+  300: #D1D5DB,
+  400: #9CA3AF,
+  450: #A1A1AA,
+  500: #6B7280,
+  550: #4b4b47,
+  600: #4B5563,
+  700: #374151,
+  800: #1F2937,
+  900: #111827
+);
+
+$colors: (
+  // Theme colors
+  primary: #0d0d0d,
+  secondary: #ECECEE,
+  white: #FFFFFF,
+  black: #000000,
+
+  // States
+  disabled: map.get($grays, 50),
+
+  // Blue
+  blue-500: #1a56db,
+
+  // Other
+  background: #F3F5F7,
+  border: #E6E7EB,
+  placeholder: map.get($grays, 400),
+
+  hover: map.get($grays, 100),
+  hover-btn: #1a1a1a,
+  focus: #BFDBFE,
+);
+
+// Text Colors
+$text-colors: (
+  primary: map.get($grays, 900),
+  secondary: map.get($grays, 700),
+  tertiary: map.get($grays, 500),
+
+  white: #FFFFFF,
+  black: map.get($grays, 900),
+
+  // Status colors
+  success: #28a745,
+  error: #dc3545,
+  warning: #ffc107,
+  info: #2E97FF,
+);
+
+

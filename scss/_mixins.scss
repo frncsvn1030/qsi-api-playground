@@ -1,0 +1,88 @@
+@use "variables" as *;
+
+
+/* ── Flex ── */
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-vertical-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex-horizontal-center {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin flex-start {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+// Inline Flex
+@mixin inline-flex-center {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin reset-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+@mixin text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
+
+/* ── Extra Styles ── */
+
+// Dot Field Pattern
+@mixin dot-field($color: rgba(0, 0, 0, 0.08), $size: 24px, $opacity: 1) {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1.4px);
+    background-size: 24px 24px;
+
+    opacity: 1;
+}
+
+// Float Animation
+@mixin float-animation($duration: 3s, $distance: -6px) {
+    animation: floatText $duration ease-in-out infinite;
+}
+
+@keyframes floatText {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}

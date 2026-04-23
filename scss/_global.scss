@@ -1,0 +1,54 @@
+@use "./variables" as *;
+@use "./functions" as *;
+
+
+/* ── Global ── */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus-visible {
+        outline: 2px solid color(focus);
+        outline-offset: 2px;
+        transition: none !important;
+    }
+}
+
+body {
+    font-family: $inter-regular;
+    background-color: color(background);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $inter-semi-bold;
+    color: color(primary);
+    margin: 0;
+}
+
+.container-custom {
+    width: 100%;
+    max-width: 82rem;
+    margin-inline: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+
+    @media (min-width: 640px) {
+        padding-inline: 2rem;
+    }
+}
+
+// general
+.title {
+    font-size: font-size(base);
+}

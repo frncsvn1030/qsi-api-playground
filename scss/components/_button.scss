@@ -1,0 +1,103 @@
+@use "../variables" as *;
+@use "../functions" as *;
+@use "../mixins" as *;
+
+
+.button {
+    text-transform: capitalize;
+    font-weight: font-weight(medium);
+    border-radius: radius(md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+
+    // if button has an icon
+    @include inline-flex-center;
+    gap: gap(md);
+
+    // state
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    /* ── Variants ── */
+    &--default {
+        background-color: color(white);
+        border: 1px solid color(border);
+        color: text(primary);
+
+        &:hover { filter: brightness(0.95); }
+    }
+
+    &--primary {
+        background-color: color(primary);
+        color: text(white);
+
+        &:hover { background-color: color(hover-btn); }
+    }
+
+    &--soft {
+        background-color: gray(100);
+        color: gray(700);
+        border: 1px solid color(border);
+
+        &:hover { background-color: gray(200); }
+    }
+
+    &--remove {
+        @include flex-center;
+        gap: 8px;
+        background: #fee2e2;
+        color: #dc2626;
+ 
+        &:hover { filter: brightness(0.9); }
+
+        [uk-icon] {
+            color: #dc2626;
+            width: 14px;
+            height: auto;
+        }
+    }
+
+    &--link {
+        padding: 0;
+        background: none;
+        border: none;
+        font-family: inherit;
+        font-weight: font-weight(regular);
+        color: text(info);
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    
+    /* ── Sizes ── */
+    &--xs {
+        padding: 4px 10px;
+        font-size: 12px;
+        line-height: 1;
+    }
+
+    &--sm {
+        padding: 8px 13px;
+        font-size: 12px;
+        line-height: 1;
+    }
+
+    &--md {
+        padding: 10px 16px;
+        font-size: 14px;
+        line-height: 1;
+    }
+
+    &--lg {
+        padding: 12px 20px;
+        font-size: 16px;
+        line-height: 1;
+    }
+}

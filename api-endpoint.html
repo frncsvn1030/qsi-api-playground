@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Endpoint</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/js/uikit-icons.min.js"></script>
+    
+    <script src="/js/password-toggle.js" defer></script>
+    <script src="/js/roster-modal.js" defer></script>
+    <script src="/js/sidebar-toggle.js" defer></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+    <!-- CDN style for code block -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script> -->
+
+</head>
+<body>
+
+    <div class="layout-wrap">
+        <!------------------------- Sidebar ---------------------------->
+        <aside class="sidebar open" id="sidebar">
+            <nav class="sidebar-nav">
+                <!-- logo -->
+                <div class="sidebar-brand">
+                    <a href="#">
+                        <div class="nav-logo"><img src="/images/logos/qx-logo.png" width="40"></div>
+                    </a>
+                    <h4>QSI Open API <span>Playground</span></h4>
+
+                    <!-- keep but ignore for now -->
+                    <button class="sidebar-close" id="sidebarClose" uk-icon="icon: close; ratio: 1.2"></button>
+                </div>
+
+                <!-- selections -->
+                <ul class="s-section">
+                    <!-- Accordions -->
+                    <li>
+                        <ul class="uk-accordion" uk-accordion="multiple: false">
+
+                            <!-- Documentation -->
+                            <li>
+                                <!-- Main Accordion -->
+                                <a class="uk-accordion-title s-item">
+                                    <span class="left">
+                                        <img src="./images/icons/document-chart-bar.svg">
+                                        Documentation
+                                    </span>
+                                    <span uk-icon="chevron-down"></span>
+                                </a>
+                                <div class="uk-accordion-content">
+                                    <ul class="nested" uk-accordion="multiple: false">
+                                        <li>
+                                            <!-- Sub Accordion 1 -->
+                                            <a class="uk-accordion-title s-item">
+                                                <span>Brand Colors</span>
+                                                <span uk-icon="chevron-down"></span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label">Get All Ordes</span>
+                                                </a>
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label">Get All Ordes</span>
+                                                </a>
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label">Get All Ordes</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <!-- Sub Accordion 2 -->
+                                            <a class="uk-accordion-title s-item">
+                                                <span>Brand Fabrics</span>
+                                                <span uk-icon="chevron-down"></span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label">Get Fabrics By Brand</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <!-- Sub Accordion 3 -->
+                                            <a class="uk-accordion-title s-item">
+                                                <span>Brand Patterns</span>
+                                                <span uk-icon="chevron-down"></span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label">Get All</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <!-- API Endpoint -->
+                            <li>
+                                <!-- Main Accordion -->
+                                <a class="uk-accordion-title s-item active" href="#api-endpoint">
+                                    <span class="left">
+                                        <img src="./images/icons/bolt.svg">
+                                        API Endpoint
+                                    </span>
+                                    <span uk-icon="chevron-down"></span>
+                                </a>
+                                <div class="uk-accordion-content">
+                                    <ul class="nested" uk-accordion="multiple: false">
+                                        <li>
+                                            <!-- Sub Accordion -->
+                                            <a class="uk-accordion-title s-item">
+                                                <span>Brand Fabrics</span>
+                                                <span uk-icon="chevron-down"></span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <a class="s-item" href="#">
+                                                    <span class="method post">POST</span>
+                                                    <span class="label">Post All Ordes</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <!-- API Keys (separate, safe) -->
+                    <li>
+                        <a class="s-item" href="#api-keys">
+                            <span class="left">
+                                <img src="./images/icons/key.svg">
+                                API Keys
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!------------------------- Header + Main Content (Wrapped inside .body-wrap class) ---------------------------->
+        <div class="body-wrap">
+
+            <header class="uk-flex uk-flex-middle">
+                <nav class="uk-width-expand uk-padding-small">
+                    <div class="uk-flex uk-flex-vertical-center">
+
+                        <button class="hamburger uk-margin-right" id="sidebar-toggle">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5" y="5" width="90" height="90" rx="14" fill="none" stroke="black" stroke-width="7"/>
+                                <line x1="72" y1="5" x2="72" y2="95" stroke="black" stroke-width="6"/>
+                            </svg>
+                        </button>
+
+                        <a href="#">
+                            <div class="nav-logo">
+                                <img src="/images/logos/qx-logo.png">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-links">
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 10.5L12 3l9 7.5"/>
+                                <path d="M5 10v10h14V10"/>
+                                <path d="M9 21v-6h6v6"/>
+                            </svg>
+                            <span>Home</span>
+                        </a>
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                            <span>Send Invite</span>
+                        </a>
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="4" y="4" width="6" height="6" rx="1"/>
+                                <rect x="14" y="4" width="6" height="6" rx="1"/>
+                                <rect x="9" y="14" width="6" height="6" rx="1"/>
+                            </svg>
+                            <span>API</span>
+                        </a>
+                        <a class="nav-link sign-in" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21a8 8 0 0 0-16 0"/>
+                                <circle cx="12" cy="8" r="4"/>
+                            </svg>
+                            <span>Sign in</span>
+                        </a>
+                    </div>
+                </nav>
+            </header>
+
+            <section class="main-content" uk-height-viewport="offset-top: true;">
+                <div class="container-custom">
+
+                    <!-- API endpoint content starts here -->
+                    <div class="api-endpoint">
+
+                        <div class="topbar">
+                            <!-- Breadcrumb -->
+                            <nav aria-label="Breadcrumb">
+                                <ul class="uk-breadcrumb breadcrumb">
+                                    <li class="uk-disabled">
+                                        <a href="#">
+                                            <img src="./images/icons/bolt.svg">
+                                            API Orders
+                                        </a>
+                                    </li>
+                                    <li><a href="#">Test API Post Orders</a></li>
+                                </ul>
+                            </nav>
+
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-expand@m">
+                                    <span class="badge badge--get badge--md">Get</span>
+                                    <span class="badge badge--default badge--md">/api/v1/auth/login</span>
+                                </div>
+
+                                <div class="uk-width-auto@m">
+                                    <button class="uk-button button button--default button--md">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                                            <polyline points="17 21 17 13 7 13 7 21"/>
+                                            <polyline points="7 3 7 8 15 8"/>
+                                        </svg>
+                                        Save Test
+                                    </button>
+                                    <button class="uk-button button button--default button--md">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 8v4l3 3"/>
+                                            <circle cx="12" cy="12" r="10"/>
+                                        </svg>
+                                        History
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uk-grid-small" uk-grid>
+
+                            <!---------- Left Card ---------->
+                            <div class="uk-width-1-2@l">
+                                <div class="card">
+                                    <!-- request url -->
+                                    <div class="section">
+                                        <h4 class="title">Request URL</h4>
+                                        
+                                        <form class="form">
+                                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                                <div class="uk-width-auto" style="position: relative; display: inline-flex; align-items: center;">
+                                                    <select 
+                                                        class="uk-button button button--soft"
+                                                        style="appearance: none; -webkit-appearance: none; padding: 0 34px 0 9px; text-transform: uppercase;"
+                                                    >
+                                                        <option>GET</option>
+                                                        <option>POST</option>
+                                                        <option>PUT</option>
+                                                    </select>
+
+                                                    <!-- Chevron icon -->
+                                                    <svg style="position: absolute; right: 12px; pointer-events: none;"
+                                                        width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2.2"
+                                                        stroke-linecap="round" stroke-linejoin="round">
+                                                        <polyline points="6 9 12 15 18 9"/>
+                                                    </svg>
+                                                </div>
+
+                                                <div class="uk-width-expand">
+                                                    <input class="uk-input input" type="text" value="https://api.example.com/api/v1/auth/login" placeholder="Enter API endpoint" />
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <button class="uk-button button button--primary uk-width-1-1">
+                                                    <span uk-icon="icon: arrow-right; ratio: 1"></span> Send
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+                                    <!-- switcher tab -->
+                                    <div class="uk-grid-small uk-child-width-1-1 uk-margin" uk-grid>
+                                        <div>
+                                            <ul class="custom-tab uk-tab" uk-tab="connect: #tab-content">
+                                                <li class="uk-active"><a href="#">Query Params</a></li>
+                                                <li><a href="#">Headers</a></li>
+                                                <li><a href="#">Production</a></li>
+                                            </ul>
+                                        </div>
+                                        <div hidden>
+                                            <ul id="tab-content" class="uk-switcher">
+                                                <li>Query Params</li>
+                                                <li>Headers content here</li>
+                                                <li>Production content here</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                
+                                    <!-- order item scenario -->
+                                    <div class="section section--has-bg uk-margin">
+                                        <h4 class="title">Order Item Scenario</h4>
+
+                                        <form class="uk-grid-small" uk-grid>
+                                            <div class="uk-width-expand@m">
+                                                <select class="uk-select select">
+                                                    <option value="" disabled selected>Select an option</option>
+                                                    <option value="Basic Sublimated">Basic Sublimated</option>
+                                                    <option value="Basic Twill">Basic Twill</option>
+                                                    <option value="Basic Logos">Basic Logos</option>
+                                                    <option value="Style with Add-ons">Style with Add-ons</option>
+                                                </select>
+                                            </div>
+                                            <div class="uk-width-auto@m">
+                                                <button class="uk-button button button--primary uk-width-1-1">Add Item</button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <!-- order information -->
+                                    <div class="form-section is-row">
+                                        <div class="form-section__header">
+                                            <h4 class="title uk-margin-remove">Order Information</h4>
+                                            <hr>
+                                        </div>
+
+                                        <ul class="uk-list uk-margin-remove">
+                                            <li>
+                                                <div class="form-input">
+                                                    <label>Client</label>
+                                                    <div class="form-control">
+                                                        <input class="uk-input input" type="text" placeholder="Enter Client" />
+                                                        <span class="form-validation">Validation text here.</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-input">
+                                                    <label>Rep ID</label>
+                                                    <div class="form-control">
+                                                        <input class="uk-input input" type="text" placeholder="Enter Rep ID" />
+                                                        <span class="form-validation">Validation text here.</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-input">
+                                                    <label>PO Number</label>
+                                                    <div class="form-control">
+                                                        <input class="uk-input input" type="text" placeholder="Enter PO Number" />
+                                                        <span class="form-validation">Validation text here.</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-input">
+                                                    <label>ID Number</label>
+                                                    <div class="form-control">
+                                                        <input class="uk-input input" type="text" placeholder="Enter ID Number" />
+                                                        <span class="form-validation">Validation text here.</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- order items/ part -->
+                                    <div class="uk-margin">
+                                        <div class="form-section__header">
+                                            <h4 class="title uk-margin-remove">Order Items/ Part</h4>
+                                            <hr>
+                                        </div>
+
+                                        <div class="section section--has-bg">
+
+                                            <!-- item card #1 (duplicate for multiple) -->
+                                            <div class="card">
+                                                <div class="form-section is-row">
+                                                    <div class="form-section__header">
+                                                        <div class="header-top">
+                                                            <div>
+                                                                <h5 class="title">Basic Sublimated</h5>
+                                                                <span class="meta">Item #1</span>
+                                                            </div>
+                                                            <button class="uk-button button button--remove button--xs">
+                                                                <span uk-icon="trash"></span> Remove
+                                                            </button>
+                                                        </div>
+                                                        <hr>
+                                                    </div>
+
+                                                    <ul class="uk-list uk-margin-remove">
+                                                        <li>
+                                                            <div class="form-input">
+                                                                <label>Item ID</label>
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter Item ID"/>
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-input">
+                                                                <label>Line Item ID</label>
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter Line Item ID" />
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-input">
+                                                                <label>Brand Style ID</label>
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter Brand Style ID" />
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-input">
+                                                                <label>Description</label>
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter Description" />
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>                                                             
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-input">
+                                                                <label>Enter Type</label>
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter Type" />
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-input">
+                                                                <label>Design Sheet</label>
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter Design Sheet" />
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-input">
+                                                                <label>Application Type</label>
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter Application Type" />
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-input">
+                                                                <label>SKU</label>
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter SKU" />
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-input">
+                                                                <label>ID</label>
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter ID" />
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-input">
+                                                                <label>Rosters</label>
+                                                                <div class="roster-trigger" uk-toggle="target: #roster-modal">
+                                                                    <span id="rosterDisplay" class="roster-placeholder">Select Rosters</span>
+                                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                                        <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- roster modal -->
+                                                            <div id="roster-modal" uk-modal>
+                                                                <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical modal">
+                                                                    <button class="uk-modal-close-default" type="button" uk-close></button>
+                                                                    <h4 class="uk-modal-title title">Select Rosters</h4> 
+
+                                                                    <!-- Adult Sizes -->
+                                                                    <div class="size-section">
+                                                                        <p class="size-section__heading">Adult Sizes</p>
+                                                                        <div class="pill-group" id="adultPills"></div>
+
+                                                                        <div class="form-input is-error">
+                                                                            <label>Custom size (optional)</label>
+                                                                            <input type="text" class="uk-input input is-sm" placeholder="e.g., 6XL, Custom"/>
+                                                                            <span class="form-validation">Please enter a valid adult size.</span>
+                                                                        </div>
+                                                                    </div>
+                                                                
+                                                                    <!-- Youth Sizes -->
+                                                                    <div class="size-section">
+                                                                        <p class="size-section__heading">Youth Sizes</p>
+                                                                        <div class="pill-group" id="youthPills"></div>
+
+                                                                        <div class="form-input is-error">
+                                                                            <label>Custom size (optional)</label>
+                                                                            <input type="text" class="uk-input input is-sm" placeholder="e.g., Y2XL, Custom"/>
+                                                                            <span class="form-validation">Please enter a valid youth size.</span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="modal-footer">
+                                                                        <button class="uk-button button button--default uk-modal-close">Cancel</button>
+                                                                        <button class="uk-button button button--primary" onclick="updateAndClose()">Add</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- clear/ generate payload buttons -->
+                                    <div class="uk-grid uk-grid-small" uk-grid>
+                                        <div class="uk-width-1-2@l">
+                                            <button class="uk-button button button--default uk-width-1-1" type="button">
+                                                Clear
+                                            </button>
+                                        </div>
+
+                                        <div class="uk-width-1-2@l">
+                                            <button class="uk-button button button--primary uk-width-1-1" type="submit">
+                                                Generate Payload
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <!-- trigger webhook -->
+                                    <div class="trigger-webhook">
+                                        <label>Trigger Webhook: </label>
+                                        <div class="group-buttons uk-child-width-expand">
+                                            <button class="uk-button button button--soft button--md" type="submit">Approve</button>
+                                            <button class="uk-button button button--soft button--md" type="submit">Artwork</button>
+                                            <button class="uk-button button button--soft button--md" type="submit">Factory</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!---------- Right Card ---------->
+                            <div class="uk-width-expand@l">
+                                <div class="card">
+
+                                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                        <div class="uk-width-auto uk-width-expand@m">
+                                            <div class="response-bar">
+                                                <!-- 200 OK badge -->
+                                                <span class="status-badge status-badge--success">
+                                                    <span class="status-dot"></span>
+                                                    200 OK
+                                                </span>
+                                            
+                                                <div class="divider"></div>
+                                            
+                                                <!-- Clock / Status -->
+                                                <span class="status-item">
+                                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2"
+                                                        stroke-linecap="round" stroke-linejoin="round">
+                                                        <circle cx="12" cy="12" r="10"/>
+                                                        <polyline points="12 6 12 12 16 14"/>
+                                                    </svg>
+                                                    Status
+                                                </span>
+                                            
+                                                <div class="divider"></div>
+                                            
+                                                <!-- File size -->
+                                                <span class="size-badge">
+                                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2"
+                                                        stroke-linecap="round" stroke-linejoin="round">
+                                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                        <polyline points="14 2 14 8 20 8"/>
+                                                    </svg>
+                                                    2.3 KB
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="uk-width-auto@m">
+                                            <button class="uk-button button button--default button--sm">
+                                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2.2"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    
+                                                    <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+                                                    
+                                                    <path d="M5 15V5a2 2 0 0 1 2-2h10"></path>
+                                                </svg>
+                                                Copy
+                                            </button>
+                                            <button class="uk-button button button--default button--sm">
+                                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2.2"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                                    <polyline points="7 10 12 15 17 10"/>
+                                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                                </svg>
+                                                Export
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- switcher tab -->
+                                    <div class="uk-grid-small uk-child-width-1-1" uk-grid>
+                                        <div>
+                                            <ul class="custom-tab uk-tab" uk-tab="connect: #tab-content-2">
+                                                <li class="uk-active"><a href="#">Response</a></li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <ul id="tab-content-2" class="uk-switcher">
+                                                <li>
+                                                    <div class="section">
+                                                        <figure class="code-block">
+<pre><code class="language-json">{
+  "success": true,
+  "status": 200,
+  "data": {
+    "id": 63,
+    "brand_style_name": "PINSTRIPE",
+    "product_name": "Sublimated Crew Neck Jersey",
+    "master_brand": {
+      "id": 63,
+      "brand": "Perfect Brand",
+      "brand_code": "PB"
+    }
+  }
+}
+
+{
+  "success": true,
+  "status": 200,
+  "data": {
+    "id": 63,
+    "brand_style_name": "PINSTRIPE",
+    "product_name": "Sublimated Crew Neck Jersey",
+    "master_brand": {
+      "id": 63,
+      "brand": "Perfect Brand",
+      "brand_code": "PB"
+    }
+  }
+}
+
+{
+  "success": true,
+  "status": 200,
+  "data": {
+    "id": 63,
+    "brand_style_name": "PINSTRIPE",
+    "product_name": "Sublimated Crew Neck Jersey",
+    "master_brand": {
+      "id": 63,
+      "brand": "Perfect Brand",
+      "brand_code": "PB"
+    }
+  }
+}
+</code></pre>
+                                                        </figure>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>  
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+@use "sass:map";
+@use "./variables" as *;
+
+@function color($key) {
+  @return map.get($colors, $key);
+}
+
+@function gray($key) {
+  @return map.get($grays, $key);
+}
+
+@function text($key) {
+  @return map.get($text-colors, $key);
+}
+
+@function font-weight($key) {
+  @return map.get($font-weights, $key);
+}
+
+@function font-size($key) {
+  @if map.has-key($font-sizes, $key) {
+    @return map.get($font-sizes, $key);
+  }
+
+  @else {
+    @return $key;
+  }
+}
+
+@function gap($key) {
+  @if map.has-key($gaps, $key) {
+    @return map.get($gaps, $key);
+  }
+
+  @else {
+    @return $key;
+  }
+}
+
+@function radius($key) {
+  @if map.has-key($gaps, $key) {
+    @return map.get($gaps, $key);
+  }
+
+  @else {
+    @return $key;
+  }
+}

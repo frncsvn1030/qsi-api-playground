@@ -1,0 +1,41 @@
+@use "../variables" as *;
+@use "../functions" as *;
+@use "../mixins" as *;
+
+
+.breadcrumb {
+    @include flex-vertical-center;
+
+    li {
+        a {
+            @include flex-vertical-center;
+            gap: 8px;
+
+            font-size: font-size(xl);
+            font-weight: font-weight(semi-bold);
+            color: text(tertiary);  
+            line-height: 1;
+
+            img {
+                width: 18px;
+                height: auto;
+                object-fit: contain;
+                display: block;
+            }
+        }
+        
+        &:last-child a {
+            color: text(primary);
+        }
+    }
+
+    /* separator */
+    > li + li::before {
+        content: "/";
+        margin: 0 14px !important;
+        color: text(muted);
+        font-size: 18px !important; 
+        line-height: 1;
+        align-self: center;
+    }
+}

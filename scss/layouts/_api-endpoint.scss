@@ -1,0 +1,44 @@
+@use "../variables" as *;
+@use "../functions" as *;
+@use "../mixins" as *;
+
+
+.api-endpoint {
+
+    .topbar {
+        margin-bottom: 20px;
+    }
+
+    // override default margin-top of ul
+    .uk-list>li:not(:first-child) {
+        margin-top: 14px;
+    }
+
+    .group-buttons {
+        @include flex-center;
+        gap: gap(xl);
+    }
+
+    .trigger-webhook {
+        @include flex-column;
+        gap: gap(xl);
+
+        label {
+            display: block;
+            font-size: font-size(sm);
+            text-transform: capitalize;
+        }
+
+        button {
+            font-size: font-size(13px);
+            font-weight: font-weight(medium);
+        }
+    }
+
+    .response-bar {
+        @include flex-vertical-center;
+        gap: 12px;
+        width: 100%;
+        font-size: font-size(13px);
+    }
+}

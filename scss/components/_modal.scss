@@ -1,0 +1,35 @@
+@use "../variables" as *;
+@use "../functions" as *;
+@use "../mixins" as *;
+
+
+.modal,
+.uk-modal-dialog.modal {
+    border-radius: radius(lg);
+    width: 100%;
+    max-width: 432px !important; 
+    padding: gap(2xl);
+
+    .title {
+        @include flex-horizontal-center;
+        font-size: font-size(xl);
+        font-weight: font-weight(semi-bold);
+        margin: 0 0 20px 0;
+    }
+
+    .description {
+        @include flex-horizontal-center;
+        font-size: font-size(sm);
+        margin: 0 0 20px 0;
+    }
+}
+
+.modal-footer {
+    margin-top: 20px;
+    @include flex-center;
+    gap: gap(xl);
+
+    button {
+        width: 100%;
+    }
+}

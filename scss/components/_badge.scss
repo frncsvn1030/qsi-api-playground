@@ -1,0 +1,155 @@
+@use "sass:map";
+
+@use "../variables" as *;
+@use "../functions" as *;
+
+
+.badge {
+    display: inline-block;
+    padding: gap(xs) gap(md);
+    
+    font-size: font-size(xs);
+    font-weight: font-weight(medium);
+    text-decoration: none;
+
+    border: 1px solid transparent;
+    border-radius: radius(md);
+    transition: all 0.2s ease;
+
+
+    /* ── Variants ── */
+    &--default {
+        background-color: color(white);
+        border: 1px solid color(border);
+        color: text(primary);
+    }
+
+    &--primary {
+        background-color: color(primary);
+        color: text(white);
+    }
+
+    &--gray {
+        background-color: gray(300);
+        color: text(primary);
+
+        &:hover {
+            background-color: gray(200);
+            color: text(primary);
+            text-decoration: none;
+        }
+    }
+
+
+    /* ── Sizes ── */
+    &--sm {
+        padding: 4px 10px;
+        font-size: 12px;
+        line-height: 1;
+    }
+
+    &--md {
+        padding: 8px 16px;
+        font-size: 14px;
+        line-height: 1;
+    }
+
+    &--lg {
+        padding: 12px 20px;
+        font-size: 16px;
+        line-height: 1;
+    }
+
+
+    /* ── Method Badges (API tags) ── */
+    $method-badges: (
+        "get":    ("background": #F3EFFF, "border": #B197FC, "color": #6741D9),
+        "post":   ("background": #EAFAF1, "border": #6FCF97, "color": #1E8449),
+        "put":    ("background": #FEF9E7, "border": #F9C74F, "color": #9A6D00),
+        "delete": ("background": #FDEDEC, "border": #F1948A, "color": #C0392B),
+        "patch":  ("background": #EAF4FB, "border": #7EC8E3, "color": #1A6E8E),
+    );
+
+    @each $method, $colors in $method-badges {
+        &--#{$method} {
+            background-color: map.get($colors, "background");
+            border: 1px solid map.get($colors, "border");
+            font-weight: font-weight(semi-bold);
+            text-transform: uppercase;
+            color: map.get($colors, "color");
+
+            // &:hover { filter: brightness(0.95); }
+        }
+    }
+}
+
+/* ── Status Badge ── */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+
+    padding: 3px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+
+    .status-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* ── Green ── */
+    &--success {
+        background: rgba(34, 197, 94, 0.10);
+        border: 1px solid rgba(34, 197, 94, 0.30);
+        color: #16a34a;
+
+        .status-dot {
+            background: #22c55e;
+            box-shadow: 0 0 5px #22c55e;
+        }
+    }
+
+    /* ── Orange ── */
+    &--warning {
+        background: rgba(249, 115, 22, 0.10);
+        border: 1px solid rgba(249, 115, 22, 0.30);
+        color: #ea580c;
+
+        .status-dot {
+            background: #f97316;
+            box-shadow: 0 0 5px #f97316;
+        }
+    }
+
+    /* ── Red ── */
+    &--error {
+        background: rgba(239, 68, 68, 0.10);
+        border: 1px solid rgba(239, 68, 68, 0.30);
+        color: #dc2626;
+
+        .status-dot {
+            background: #ef4444;
+            box-shadow: 0 0 5px #ef4444;
+        }
+    }
+}
+
+/* ── Pulse Animation ── */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.55;
+    }
+}

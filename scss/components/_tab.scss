@@ -1,0 +1,52 @@
+@use "../variables" as *;
+@use "../functions" as *;
+@use "../mixins" as *;
+
+
+.custom-tab {
+  background: #f2f3f5;
+  padding: 4px;
+  border-radius: radius(md);
+  display: inline-flex;
+  width: 100%;
+
+  &.uk-tab {
+    margin: 0;
+
+    &::before {
+      border: none;
+    }
+  }
+
+  > li {
+    padding: 0;
+    flex: 1;
+
+    > a {
+      font-family: $inter-regular;
+      font-size: font-size(sm);
+      text-transform: capitalize;
+      color: text(tertiary);
+      padding: 8px 12px;
+      border-radius: radius(sm);
+      border: none !important;
+      transition: color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+      white-space: nowrap;
+      letter-spacing: -0.01em;
+
+      &:hover {
+        color: text(secondary);
+        background: gray(50);
+      }
+    }
+
+    &.uk-active {
+      > a {
+        background: #ffffff;
+        color: #111827;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08),
+          0 0 0 1px rgba(0, 0, 0, 0.04);
+      }
+    }
+  }
+}
