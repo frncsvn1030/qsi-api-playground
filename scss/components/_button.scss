@@ -46,6 +46,25 @@
         &:hover { background-color: gray(200); }
     }
 
+    &--back {
+        padding: 0;
+        background: none;
+        border: none;
+        font-family: inherit;
+        font-weight: font-weight(regular);
+        color: text(secondary);
+        cursor: pointer;
+
+        // &::before {
+        //     content: "←";
+        // }
+
+        &:hover {
+            color: text(primary);
+            text-decoration: underline;
+        }
+    }
+
     &--remove {
         @include flex-center;
         gap: 8px;
