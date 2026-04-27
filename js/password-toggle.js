@@ -1,7 +1,7 @@
 // Visibility script for password's eye icon
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Handle all password inputs and their corresponding toggle buttons
+    // Handle all password inputs and their corresponding toggle buttons (eye icons)
     const passwordWrappers = document.querySelectorAll('.password-wrapper');
 
     passwordWrappers.forEach(wrapper => {
@@ -30,6 +30,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     passwordInput.type = 'password';
                     toggleButton.setAttribute('uk-icon', 'icon: eye-slash; ratio: 0.8');
+                }
+            });
+        }
+    });
+
+    // Handle all "View" buttons for API keys
+    const viewButtons = document.querySelectorAll('button.uk-button.button.button--default');
+
+    viewButtons.forEach(button => {
+        if (button.textContent.trim() === 'View') {
+            button.addEventListener('click', function () {
+                // Find the parent section
+                const section = button.closest('.section');
+                if (section) {
+                    // Find all password inputs in this section
+                    const passwordInputs = section.querySelectorAll('input[type="password"], input[type="text"]');
+                    passwordInputs.forEach(input => {
+                        if (input.type === 'password') {
+                            input.type = 'text';
+                        } else {
+                            input.type = 'password';
+                        }
+                    });
                 }
             });
         }

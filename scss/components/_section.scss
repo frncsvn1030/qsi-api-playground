@@ -13,6 +13,12 @@
         // border: 1px solid color(border);
         border-radius: radius(md);
     }
+
+    &--has-border {
+        padding: 16px;
+        border: 1px solid color(border);
+        border-radius: radius(md);
+    }
 }
 
 

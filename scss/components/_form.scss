@@ -83,6 +83,20 @@
                 }
             }
         }
+
+        .form-input-action {
+            width: 100%;
+            display: flex;
+            gap: 6px;
+
+            .button {
+                width: 100px;
+                height: 40px;
+                flex-shrink: 0;
+                font-size: font-size(13px);
+                font-weight: font-weight(regular);
+            }
+        }
     }
 }
 

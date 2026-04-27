@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Keys</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/js/uikit-icons.min.js"></script>
+    
+    <script src="/js/password-toggle.js" defer></script>
+    <script src="/js/roster-modal.js" defer></script>
+    <script src="/js/sidebar-toggle.js" defer></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+    <!-- CDN style for code block -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script> -->
+
+</head>
+<body>
+
+    <div class="layout-wrap">
+        <!------------------------- Sidebar ---------------------------->
+        <aside class="sidebar open" id="sidebar">
+            <nav class="sidebar-nav">
+                <!-- logo -->
+                <div class="sidebar-brand">
+                    <a href="#">
+                        <div class="nav-logo"><img src="/images/logos/qx-logo.png" width="40"></div>
+                    </a>
+                    <h4>QSI Open API <span>Playground</span></h4>
+
+                    <!-- keep but ignore for now -->
+                    <button class="sidebar-close" id="sidebarClose" uk-icon="icon: close; ratio: 1.2"></button>
+                </div>
+
+                <!-- selections -->
+                <ul class="s-section">
+                    <!-- Accordions -->
+                    <li>
+                        <ul class="uk-accordion" uk-accordion="multiple: false">
+
+                            <!-- Documentation -->
+                            <li>
+                                <!-- Main Accordion -->
+                                <a class="uk-accordion-title s-item">
+                                    <span class="left">
+                                        <img src="./images/icons/document-chart-bar.svg">
+                                        Documentation
+                                    </span>
+                                    <span uk-icon="chevron-down"></span>
+                                </a>
+                                <div class="uk-accordion-content">
+                                    <ul class="nested" uk-accordion="multiple: false">
+                                        <li>
+                                            <!-- Sub Accordion 1 -->
+                                            <a class="uk-accordion-title s-item">
+                                                <span>Brand Colors</span>
+                                                <span uk-icon="chevron-down"></span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label">Get All Ordes</span>
+                                                </a>
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label">Get All Ordes</span>
+                                                </a>
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label">Get All Ordes</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <!-- Sub Accordion 2 -->
+                                            <a class="uk-accordion-title s-item">
+                                                <span>Brand Fabrics</span>
+                                                <span uk-icon="chevron-down"></span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label">Get Fabrics By Brand</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <!-- Sub Accordion 3 -->
+                                            <a class="uk-accordion-title s-item">
+                                                <span>Brand Patterns</span>
+                                                <span uk-icon="chevron-down"></span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label">Get All</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <!-- API Endpoint -->
+                            <li>
+                                <!-- Main Accordion -->
+                                <a class="uk-accordion-title s-item" href="#api-endpoint">
+                                    <span class="left">
+                                        <img src="./images/icons/bolt.svg">
+                                        API Endpoint
+                                    </span>
+                                    <span uk-icon="chevron-down"></span>
+                                </a>
+                                <div class="uk-accordion-content">
+                                    <ul class="nested" uk-accordion="multiple: false">
+                                        <li>
+                                            <!-- Sub Accordion -->
+                                            <a class="uk-accordion-title s-item">
+                                                <span>Brand Fabrics</span>
+                                                <span uk-icon="chevron-down"></span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <a class="s-item" href="#">
+                                                    <span class="method post">POST</span>
+                                                    <span class="label">Post All Ordes</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <!-- API Keys (separate, safe) -->
+                    <li>
+                        <a class="s-item active" href="#api-keys">
+                            <span class="left">
+                                <img src="./images/icons/key.svg">
+                                API Keys
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!------------------------- Header + Main Content (Wrapped inside .body-wrap class) ---------------------------->
+        <div class="body-wrap">
+
+            <header class="uk-flex uk-flex-middle">
+                <nav class="uk-width-expand uk-padding-small">
+                    <div class="uk-flex uk-flex-vertical-center">
+
+                        <button class="hamburger uk-margin-right" id="sidebar-toggle">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5" y="5" width="90" height="90" rx="14" fill="none" stroke="black" stroke-width="7"/>
+                                <line x1="72" y1="5" x2="72" y2="95" stroke="black" stroke-width="6"/>
+                            </svg>
+                        </button>
+
+                        <a href="#">
+                            <div class="nav-logo">
+                                <img src="/images/logos/qx-logo.png">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-links">
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 10.5L12 3l9 7.5"/>
+                                <path d="M5 10v10h14V10"/>
+                                <path d="M9 21v-6h6v6"/>
+                            </svg>
+                            <span>Home</span>
+                        </a>
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                            <span>Send Invite</span>
+                        </a>
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="4" y="4" width="6" height="6" rx="1"/>
+                                <rect x="14" y="4" width="6" height="6" rx="1"/>
+                                <rect x="9" y="14" width="6" height="6" rx="1"/>
+                            </svg>
+                            <span>API</span>
+                        </a>
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21a8 8 0 0 0-16 0"/>
+                                <circle cx="12" cy="8" r="4"/>
+                            </svg>
+                            <span>Test User</span>
+                        </a>
+                    </div>
+                </nav>
+            </header>
+
+            <section class="main-content" uk-height-viewport="offset-top: true;">
+                <div class="container-custom">
+
+                    <!-- API endpoint content starts here -->
+                    <div class="api-keys uk-flex uk-flex-center">
+
+                        <div class="card uk-width-4-5 uk-width-3-4@xl">
+                            <div class="uk-padding-small">
+                                <h4 class="uk-text-center">API Keys</h4>
+
+                                <!-- Staging -->
+                                <div class="form-section is-row">
+                                    <div class="form-section__header">
+                                        <h4 class="title uk-margin-remove">Staging</h4>
+                                        <hr>
+                                    </div>
+
+                                    <!-- 1 -->
+                                    <div class="section section--has-border">
+                                        <div class="uk-grid-small uk-child-width-1-2" uk-grid>
+
+                                            <div class="uk-width-expand">   
+                                                <ul class="uk-list uk-margin-remove">
+                                                    <li>
+                                                        <div class="form-input">
+                                                            <label>Client</label>
+                                                            <div class="form-input-action">
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input" type="password" value="pk_live_7f3a9c2d8e41b6f0a91c4d72" />
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>
+                                                                <div>
+                                                                    <button class="uk-button button button--default">View</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-input">
+                                                            <label>Rep ID</label>
+                                                            <div class="form-input-action">
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input is-md" type="password" value="pk_live_7f3a9c2d8e41b6f0a91c4d72" />
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>
+                                                                <div>
+                                                                    <button class="uk-button button button--default">Regenerate</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="uk-width-auto">
+                                                <label class="toggle toggle-lg">
+                                                    <input type="radio" name="staging-toggle">
+                                                    <span></span>
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- 2 -->
+                                    <div class="section section--has-border">
+                                        <div class="uk-grid-small uk-child-width-1-2" uk-grid>
+
+                                            <div class="uk-width-expand">   
+                                                <ul class="uk-list uk-margin-remove">
+                                                    <li>
+                                                        <div class="form-input">
+                                                            <label>Client</label>
+                                                            <div class="form-input-action">
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input" type="password" value="pk_live_7f3a9c2d8e41b6f0a91c4d72" />
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>
+                                                                <div>
+                                                                    <button class="uk-button button button--default">View</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-input">
+                                                            <label>Rep ID</label>
+                                                            <div class="form-input-action">
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input is-md" type="password" value="pk_live_7f3a9c2d8e41b6f0a91c4d72" />
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>
+                                                                <div>
+                                                                    <button class="uk-button button button--default">Regenerate</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="uk-width-auto">
+                                                <label class="toggle toggle-lg">
+                                                    <input type="radio" name="staging-toggle">
+                                                    <span></span>
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Generate key button -->
+                                    <div class="uk-margin-auto" hidden>
+                                        <button class="uk-button button button--default button--sm">
+                                            <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" style="margin-right:6px; vertical-align:middle;">
+                                                <path d="M10 1v18M1 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                            </svg>
+                                            Generate Key
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Production -->
+                                <div class="form-section is-row uk-margin-medium">
+                                    <div class="form-section__header">
+                                        <h4 class="title uk-margin-remove">Production</h4>
+                                        <hr>
+                                    </div>
+
+                                    <!-- 1 -->
+                                    <div class="section section--has-border">
+                                        <div class="uk-grid-small uk-child-width-1-2" uk-grid>
+
+                                            <div class="uk-width-expand">   
+                                                <ul class="uk-list uk-margin-remove">
+                                                    <li>
+                                                        <div class="form-input">
+                                                            <label>Client</label>
+                                                            <div class="form-input-action">
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input" type="password" value="pk_live_7f3a9c2d8e41b6f0a91c4d72" />
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>
+                                                                <div>
+                                                                    <button class="uk-button button button--default">View</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-input">
+                                                            <label>Rep ID</label>
+                                                            <div class="form-input-action">
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input is-md" type="password" value="pk_live_7f3a9c2d8e41b6f0a91c4d72" />
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>
+                                                                <div>
+                                                                    <button class="uk-button button button--default">Regenerate</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="uk-width-auto">
+                                                <label class="toggle toggle-lg">
+                                                    <input type="radio" name="production-toggle">
+                                                    <span></span>
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- 2 -->
+                                    <div class="section section--has-border">
+                                        <div class="uk-grid-small uk-child-width-1-2" uk-grid>
+
+                                            <div class="uk-width-expand">   
+                                                <ul class="uk-list uk-margin-remove">
+                                                    <li>
+                                                        <div class="form-input">
+                                                            <label>Client</label>
+                                                            <div class="form-input-action">
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input" type="password" value="pk_live_7f3a9c2d8e41b6f0a91c4d72" />
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>
+                                                                <div>
+                                                                    <button class="uk-button button button--default">View</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-input">
+                                                            <label>Rep ID</label>
+                                                            <div class="form-input-action">
+                                                                <div class="form-control">
+                                                                    <input class="uk-input input is-md" type="password" value="pk_live_7f3a9c2d8e41b6f0a91c4d72" />
+                                                                    <span class="form-validation">Validation text here.</span>
+                                                                </div>
+                                                                <div>
+                                                                    <button class="uk-button button button--default">Regenerate</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="uk-width-auto">
+                                                <label class="toggle toggle-lg">
+                                                    <input type="radio" name="production-toggle">
+                                                    <span></span>
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Generate key button -->
+                                    <div class="uk-margin-auto">
+                                        <button class="uk-button button button--default button--sm">
+                                            <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" style="margin-right:6px; vertical-align:middle;">
+                                                <path d="M10 1v18M1 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                            </svg>
+                                            Generate Key
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>       
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </section>
+
+        </div>  
+    </div>
+
+</body>
+</html>

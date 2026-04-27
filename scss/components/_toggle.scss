@@ -1,0 +1,92 @@
+@use "../variables" as *;
+@use "../functions" as *;
+@use "../mixins" as *;
+
+.toggle {
+	display: inline-block;
+	position: relative;
+	height: 24px;
+	width: 43px;
+	background-color: gray(300);
+	border-radius: 3rem;
+	overflow: hidden;
+	cursor: pointer;
+	vertical-align: middle;
+
+	&:hover {
+		opacity: 0.9;
+	}
+
+	/* hide native input */
+	input[type="checkbox"],
+	input[type="radio"] {
+		position: absolute;
+		inset: 0;
+		opacity: 0;
+		margin: 0;
+		cursor: pointer;
+		z-index: 3;
+	}
+
+	/* track */
+	span {
+		position: absolute;
+		inset: 0;
+		transition: background-color 0.3s ease;
+	}
+
+	/* knob */
+	span::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 4px;
+		transform: translateY(-50%);
+		width: 16px;
+		height: 16px;
+		background-color: color(white);
+		border-radius: 50%;
+		transition: left 0.3s ease;
+	}
+
+	/* checked state */
+	input:checked + span {
+		background-color: color(primary);
+	}
+
+	input:checked + span::before {
+		left: 23px;
+	}
+
+	/* small */
+	&.toggle-sm {
+		width: 36px;
+		height: 20px;
+
+		span::before {
+			width: 12px;
+			height: 12px;
+			left: 4px;
+		}
+
+		input:checked + span::before {
+			left: 20px;
+		}
+	}
+
+	/* large */
+	&.toggle-lg {
+		width: 50px;
+		height: 28px;
+
+		span::before {
+			width: 20px;
+			height: 20px;
+			left: 4px;
+		}
+
+		input:checked + span::before {
+			left: 26px;
+		}
+	}
+}
