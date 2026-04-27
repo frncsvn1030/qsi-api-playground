@@ -24,17 +24,6 @@
     }
 }
 
-.modal-footer {
-    margin-top: 20px;
-    @include flex-center;
-    gap: gap(xl);
-
-    button {
-        width: 100%;
-    }
-}
-
-
 // Reset Password Modal Success
 .password-success {
   &-alert {
