@@ -88,11 +88,7 @@
             font-weight: font-weight(medium);
             color: gray(500);
             letter-spacing: 0.4px;
-
-            // 🔑 truncate title
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+            @include text-truncate;
         }
     }
 }
@@ -207,7 +203,7 @@
         // nested indentation
         [uk-accordion]>li,
         .nested & {
-            padding-left: 28px;
+            padding-left: 20px;
         }
     }
 }

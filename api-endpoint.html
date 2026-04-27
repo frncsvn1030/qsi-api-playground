@@ -52,7 +52,7 @@
 
                 <!-- selections -->
                 <ul class="s-section">
-                    <!-- Accordions -->
+                    <!-- accordions are grouped/shared the same parent -->
                     <li>
                         <ul class="uk-accordion" uk-accordion="multiple: false">
 
@@ -68,8 +68,8 @@
                                 </a>
                                 <div class="uk-accordion-content">
                                     <ul class="nested" uk-accordion="multiple: false">
+                                        <!-- Sub Accordion 1 -->
                                         <li>
-                                            <!-- Sub Accordion 1 -->
                                             <a class="uk-accordion-title s-item">
                                                 <span>Brand Colors</span>
                                                 <span uk-icon="chevron-down"></span>
@@ -77,20 +77,14 @@
                                             <div class="uk-accordion-content">
                                                 <a class="s-item" href="#">
                                                     <span class="method get">GET</span>
-                                                    <span class="label">Get All Ordes</span>
-                                                </a>
-                                                <a class="s-item" href="#">
-                                                    <span class="method get">GET</span>
-                                                    <span class="label">Get All Ordes</span>
-                                                </a>
-                                                <a class="s-item" href="#">
-                                                    <span class="method get">GET</span>
-                                                    <span class="label">Get All Ordes</span>
+                                                    <span class="label" uk-tooltip="title: Get Colors By Brand; delay: 800">
+                                                        Get Colors By Brand
+                                                    </span>
                                                 </a>
                                             </div>
                                         </li>
+                                        <!-- Sub Accordion 2 -->
                                         <li>
-                                            <!-- Sub Accordion 2 -->
                                             <a class="uk-accordion-title s-item">
                                                 <span>Brand Fabrics</span>
                                                 <span uk-icon="chevron-down"></span>
@@ -98,12 +92,14 @@
                                             <div class="uk-accordion-content">
                                                 <a class="s-item" href="#">
                                                     <span class="method get">GET</span>
-                                                    <span class="label">Get Fabrics By Brand</span>
+                                                    <span class="label" uk-tooltip="title: Get Fabrics By Brand; delay: 800">
+                                                        Get Fabrics By Brand
+                                                    </span>
                                                 </a>
                                             </div>
                                         </li>
+                                        <!-- Sub Accordion 3 -->
                                         <li>
-                                            <!-- Sub Accordion 3 -->
                                             <a class="uk-accordion-title s-item">
                                                 <span>Brand Patterns</span>
                                                 <span uk-icon="chevron-down"></span>
@@ -111,7 +107,36 @@
                                             <div class="uk-accordion-content">
                                                 <a class="s-item" href="#">
                                                     <span class="method get">GET</span>
-                                                    <span class="label">Get All</span>
+                                                    <span class="label" uk-tooltip="title: Get All; delay: 800">
+                                                        Get All
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <!-- Sub Accordion 4 -->
+                                        <li>
+                                            <a class="uk-accordion-title s-item">
+                                                <span>Brand Styles</span>
+                                                <span uk-icon="chevron-down"></span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label" uk-tooltip="title: Get All Brand Styles; delay: 800">
+                                                        Get All Brand Styles
+                                                    </span>
+                                                </a>
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label" uk-tooltip="title: Get Brand Style By ID; delay: 800">
+                                                        Get Brand Style By ID
+                                                    </span>
+                                                </a>
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label" uk-tooltip="title: Get Brand Style By Vendor Style ID; delay: 800">
+                                                        Get Brand Style By Vendor Style ID
+                                                    </span>
                                                 </a>
                                             </div>
                                         </li>
@@ -131,16 +156,75 @@
                                 </a>
                                 <div class="uk-accordion-content">
                                     <ul class="nested" uk-accordion="multiple: false">
+                                        <!-- Sub Accordion 1 -->
                                         <li>
-                                            <!-- Sub Accordion -->
+                                            <a class="uk-accordion-title s-item">
+                                                <span>Brand Colors</span>
+                                                <span uk-icon="chevron-down"></span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label" uk-tooltip="title: Get Colors By Brand; delay: 800">
+                                                        Get Colors By Brand
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <!-- Sub Accordion 2 -->
+                                        <li>
                                             <a class="uk-accordion-title s-item">
                                                 <span>Brand Fabrics</span>
                                                 <span uk-icon="chevron-down"></span>
                                             </a>
                                             <div class="uk-accordion-content">
                                                 <a class="s-item" href="#">
-                                                    <span class="method post">POST</span>
-                                                    <span class="label">Post All Ordes</span>
+                                                    <span class="method get">GET</span>
+                                                    <span class="label" uk-tooltip="title: Get Fabrics By Brand; delay: 800">
+                                                        Get Fabrics By Brand
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <!-- Sub Accordion 3 -->
+                                        <li>
+                                            <a class="uk-accordion-title s-item">
+                                                <span>Brand Patterns</span>
+                                                <span uk-icon="chevron-down"></span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label" uk-tooltip="title: Get All; delay: 800">
+                                                        Get All
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <!-- Sub Accordion 4 -->
+                                        <li>
+                                            <a class="uk-accordion-title s-item">
+                                                <span>Brand Styles</span>
+                                                <span uk-icon="chevron-down"></span>
+                                            </a>
+                                            <div class="uk-accordion-content">
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label" uk-tooltip="title: Get All Brand Styles; delay: 800">
+                                                        Get All Brand Styles
+                                                    </span>
+                                                </a>
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label" uk-tooltip="title: Get Brand Style By ID; delay: 800">
+                                                        Get Brand Style By ID
+                                                    </span>
+                                                </a>
+                                                <a class="s-item" href="#">
+                                                    <span class="method get">GET</span>
+                                                    <span class="label" uk-tooltip="title: Get Brand Style By Vendor Style ID; delay: 800">
+                                                        Get Brand Style By Vendor Style ID
+                                                    </span>
                                                 </a>
                                             </div>
                                         </li>
@@ -304,7 +388,12 @@
                                                 </div>
 
                                                 <div class="uk-width-expand">
-                                                    <input class="uk-input input" type="text" value="https://api.example.com/api/v1/auth/login" placeholder="Enter API endpoint" />
+                                                    <input 
+                                                        class="uk-input input" 
+                                                        type="text" 
+                                                        value="https://api.example.com/api/v1/auth/login"
+                                                        readonly
+                                                    />
                                                 </div>
                                             </div>
 
@@ -335,7 +424,7 @@
                                     </div>
                                 
                                     <!-- order item scenario -->
-                                    <div class="section section--has-bg uk-margin">
+                                    <div class="section section--has-bg">
                                         <h4 class="title">Order Item Scenario</h4>
 
                                         <form class="uk-grid-small" uk-grid>
@@ -354,245 +443,248 @@
                                         </form>
                                     </div>
 
-                                    <!-- order information -->
-                                    <div class="form-section is-row">
-                                        <div class="form-section__header">
-                                            <h4 class="title uk-margin-remove">Order Information</h4>
-                                            <hr>
-                                        </div>
-
-                                        <ul class="uk-list uk-margin-remove">
-                                            <li>
-                                                <div class="form-input">
-                                                    <label>Client</label>
-                                                    <div class="form-control">
-                                                        <input class="uk-input input" type="text" placeholder="Enter Client" />
-                                                        <span class="form-validation">Validation text here.</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="form-input">
-                                                    <label>Rep ID</label>
-                                                    <div class="form-control">
-                                                        <input class="uk-input input" type="text" placeholder="Enter Rep ID" />
-                                                        <span class="form-validation">Validation text here.</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="form-input">
-                                                    <label>PO Number</label>
-                                                    <div class="form-control">
-                                                        <input class="uk-input input" type="text" placeholder="Enter PO Number" />
-                                                        <span class="form-validation">Validation text here.</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="form-input">
-                                                    <label>ID Number</label>
-                                                    <div class="form-control">
-                                                        <input class="uk-input input" type="text" placeholder="Enter ID Number" />
-                                                        <span class="form-validation">Validation text here.</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                    <!-- order items/ part -->
+                                    <!-- will be shown or added when the user added an order item scenario -->
                                     <div class="uk-margin">
-                                        <div class="form-section__header">
-                                            <h4 class="title uk-margin-remove">Order Items/ Part</h4>
-                                            <hr>
-                                        </div>
-
-                                        <div class="section section--has-bg">
-
-                                            <!-- item card #1 (duplicate for multiple) -->
-                                            <div class="card">
-                                                <div class="form-section is-row">
-                                                    <div class="form-section__header">
-                                                        <div class="header-top">
-                                                            <div>
-                                                                <h5 class="title">Basic Sublimated</h5>
-                                                                <span class="meta">Item #1</span>
-                                                            </div>
-                                                            <button class="uk-button button button--remove button--xs">
-                                                                <span uk-icon="trash"></span> Remove
-                                                            </button>
-                                                        </div>
-                                                        <hr>
-                                                    </div>
-
-                                                    <ul class="uk-list uk-margin-remove">
-                                                        <li>
-                                                            <div class="form-input">
-                                                                <label>Item ID</label>
-                                                                <div class="form-control">
-                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter Item ID"/>
-                                                                    <span class="form-validation">Validation text here.</span>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="form-input">
-                                                                <label>Line Item ID</label>
-                                                                <div class="form-control">
-                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter Line Item ID" />
-                                                                    <span class="form-validation">Validation text here.</span>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="form-input">
-                                                                <label>Brand Style ID</label>
-                                                                <div class="form-control">
-                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter Brand Style ID" />
-                                                                    <span class="form-validation">Validation text here.</span>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="form-input">
-                                                                <label>Description</label>
-                                                                <div class="form-control">
-                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter Description" />
-                                                                    <span class="form-validation">Validation text here.</span>
-                                                                </div>                                                             
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="form-input">
-                                                                <label>Enter Type</label>
-                                                                <div class="form-control">
-                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter Type" />
-                                                                    <span class="form-validation">Validation text here.</span>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="form-input">
-                                                                <label>Design Sheet</label>
-                                                                <div class="form-control">
-                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter Design Sheet" />
-                                                                    <span class="form-validation">Validation text here.</span>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="form-input">
-                                                                <label>Application Type</label>
-                                                                <div class="form-control">
-                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter Application Type" />
-                                                                    <span class="form-validation">Validation text here.</span>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="form-input">
-                                                                <label>SKU</label>
-                                                                <div class="form-control">
-                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter SKU" />
-                                                                    <span class="form-validation">Validation text here.</span>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="form-input">
-                                                                <label>ID</label>
-                                                                <div class="form-control">
-                                                                    <input class="uk-input input is-sm" type="text" placeholder="Enter ID" />
-                                                                    <span class="form-validation">Validation text here.</span>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="form-input">
-                                                                <label>Rosters</label>
-                                                                <div class="roster-trigger" uk-toggle="target: #roster-modal">
-                                                                    <span id="rosterDisplay" class="roster-placeholder">Select Rosters</span>
-                                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                                                        <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                                    </svg>
-                                                                </div>
-                                                            </div>
-
-                                                            <!-- roster modal -->
-                                                            <div id="roster-modal" uk-modal>
-                                                                <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical modal">
-                                                                    <button class="uk-modal-close-default" type="button" uk-close></button>
-                                                                    <h4 class="uk-modal-title title">Select Rosters</h4> 
-
-                                                                    <!-- Adult Sizes -->
-                                                                    <div class="size-section">
-                                                                        <p class="size-section__heading">Adult Sizes</p>
-                                                                        <div class="pill-group" id="adultPills"></div>
-
-                                                                        <div class="form-input is-error">
-                                                                            <label>Custom size (optional)</label>
-                                                                            <input type="text" class="uk-input input is-sm" placeholder="e.g., 6XL, Custom"/>
-                                                                            <span class="form-validation">Please enter a valid adult size.</span>
-                                                                        </div>
-                                                                    </div>
-                                                                
-                                                                    <!-- Youth Sizes -->
-                                                                    <div class="size-section">
-                                                                        <p class="size-section__heading">Youth Sizes</p>
-                                                                        <div class="pill-group" id="youthPills"></div>
-
-                                                                        <div class="form-input is-error">
-                                                                            <label>Custom size (optional)</label>
-                                                                            <input type="text" class="uk-input input is-sm" placeholder="e.g., Y2XL, Custom"/>
-                                                                            <span class="form-validation">Please enter a valid youth size.</span>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="uk-grid uk-grid-small uk-child-width-1-2@m" uk-grid>
-                                                                        <div>
-                                                                            <button class="uk-button button button--default uk-width-1-1 uk-modal-close">Cancel</button>
-                                                                        </div>
-                                                                        <div>
-                                                                            <button class="uk-button button button--primary uk-width-1-1" onclick="updateAndClose()">Add</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                        <!-- order information -->
+                                        <div class="form-section is-row">
+                                            <div class="form-section__header">
+                                                <h4 class="title uk-margin-remove">Order Information</h4>
+                                                <hr>
                                             </div>
 
+                                            <ul class="uk-list uk-margin-remove">
+                                                <li>
+                                                    <div class="form-input">
+                                                        <label>Client</label>
+                                                        <div class="form-control">
+                                                            <input class="uk-input input" type="text" placeholder="Enter Client" />
+                                                            <span class="form-validation">Validation text here.</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-input">
+                                                        <label>Rep ID</label>
+                                                        <div class="form-control">
+                                                            <input class="uk-input input" type="text" placeholder="Enter Rep ID" />
+                                                            <span class="form-validation">Validation text here.</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-input">
+                                                        <label>PO Number</label>
+                                                        <div class="form-control">
+                                                            <input class="uk-input input" type="text" placeholder="Enter PO Number" />
+                                                            <span class="form-validation">Validation text here.</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-input">
+                                                        <label>ID Number</label>
+                                                        <div class="form-control">
+                                                            <input class="uk-input input" type="text" placeholder="Enter ID Number" />
+                                                            <span class="form-validation">Validation text here.</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </div>
-                                    </div>
 
-                                    <!-- clear/ generate payload buttons -->
-                                    <div class="uk-grid uk-grid-small" uk-grid>
-                                        <div class="uk-width-1-2@l">
-                                            <button class="uk-button button button--default uk-width-1-1" type="button">
-                                                Clear
-                                            </button>
+                                        <!-- order items/ part -->
+                                        <div class="uk-margin">
+                                            <div class="form-section__header">
+                                                <h4 class="title uk-margin-remove">Order Items/ Part</h4>
+                                                <hr>
+                                            </div>
+
+                                            <div class="section section--has-bg">
+
+                                                <!-- item card #1 (duplicate for multiple) -->
+                                                <div class="card">
+                                                    <div class="form-section is-row">
+                                                        <div class="form-section__header">
+                                                            <div class="header-top">
+                                                                <div>
+                                                                    <h5 class="title">Basic Sublimated</h5>
+                                                                    <span class="meta">Item #1</span>
+                                                                </div>
+                                                                <button class="uk-button button button--remove button--xs">
+                                                                    <span uk-icon="trash"></span> Remove
+                                                                </button>
+                                                            </div>
+                                                            <hr>
+                                                        </div>
+
+                                                        <ul class="uk-list uk-margin-remove">
+                                                            <li>
+                                                                <div class="form-input">
+                                                                    <label>Item ID</label>
+                                                                    <div class="form-control">
+                                                                        <input class="uk-input input is-sm" type="text" placeholder="Enter Item ID"/>
+                                                                        <span class="form-validation">Validation text here.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="form-input">
+                                                                    <label>Line Item ID</label>
+                                                                    <div class="form-control">
+                                                                        <input class="uk-input input is-sm" type="text" placeholder="Enter Line Item ID" />
+                                                                        <span class="form-validation">Validation text here.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="form-input">
+                                                                    <label>Brand Style ID</label>
+                                                                    <div class="form-control">
+                                                                        <input class="uk-input input is-sm" type="text" placeholder="Enter Brand Style ID" />
+                                                                        <span class="form-validation">Validation text here.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="form-input">
+                                                                    <label>Description</label>
+                                                                    <div class="form-control">
+                                                                        <input class="uk-input input is-sm" type="text" placeholder="Enter Description" />
+                                                                        <span class="form-validation">Validation text here.</span>
+                                                                    </div>                                                             
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="form-input">
+                                                                    <label>Enter Type</label>
+                                                                    <div class="form-control">
+                                                                        <input class="uk-input input is-sm" type="text" placeholder="Enter Type" />
+                                                                        <span class="form-validation">Validation text here.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="form-input">
+                                                                    <label>Design Sheet</label>
+                                                                    <div class="form-control">
+                                                                        <input class="uk-input input is-sm" type="text" placeholder="Enter Design Sheet" />
+                                                                        <span class="form-validation">Validation text here.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="form-input">
+                                                                    <label>Application Type</label>
+                                                                    <div class="form-control">
+                                                                        <input class="uk-input input is-sm" type="text" placeholder="Enter Application Type" />
+                                                                        <span class="form-validation">Validation text here.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="form-input">
+                                                                    <label>SKU</label>
+                                                                    <div class="form-control">
+                                                                        <input class="uk-input input is-sm" type="text" placeholder="Enter SKU" />
+                                                                        <span class="form-validation">Validation text here.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="form-input">
+                                                                    <label>ID</label>
+                                                                    <div class="form-control">
+                                                                        <input class="uk-input input is-sm" type="text" placeholder="Enter ID" />
+                                                                        <span class="form-validation">Validation text here.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="form-input">
+                                                                    <label>Rosters</label>
+                                                                    <div class="roster-trigger" uk-toggle="target: #roster-modal">
+                                                                        <span id="rosterDisplay" class="roster-placeholder">Select Rosters</span>
+                                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                                            <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- roster modal -->
+                                                                <div id="roster-modal" uk-modal>
+                                                                    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical modal">
+                                                                        <button class="uk-modal-close-default" type="button" uk-close></button>
+                                                                        <h4 class="uk-modal-title title">Select Rosters</h4> 
+
+                                                                        <!-- Adult Sizes -->
+                                                                        <div class="size-section">
+                                                                            <p class="size-section__heading">Adult Sizes</p>
+                                                                            <div class="pill-group" id="adultPills"></div>
+
+                                                                            <div class="form-input is-error">
+                                                                                <label>Custom size (optional)</label>
+                                                                                <input type="text" class="uk-input input is-sm" placeholder="e.g., 6XL, Custom"/>
+                                                                                <span class="form-validation">Please enter a valid adult size.</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    
+                                                                        <!-- Youth Sizes -->
+                                                                        <div class="size-section">
+                                                                            <p class="size-section__heading">Youth Sizes</p>
+                                                                            <div class="pill-group" id="youthPills"></div>
+
+                                                                            <div class="form-input is-error">
+                                                                                <label>Custom size (optional)</label>
+                                                                                <input type="text" class="uk-input input is-sm" placeholder="e.g., Y2XL, Custom"/>
+                                                                                <span class="form-validation">Please enter a valid youth size.</span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="uk-grid uk-grid-small uk-child-width-1-2@m" uk-grid>
+                                                                            <div>
+                                                                                <button class="uk-button button button--default uk-width-1-1 uk-modal-close">Cancel</button>
+                                                                            </div>
+                                                                            <div>
+                                                                                <button class="uk-button button button--primary uk-width-1-1" onclick="updateAndClose()">Add</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div>
                                         </div>
 
-                                        <div class="uk-width-1-2@l">
-                                            <button class="uk-button button button--primary uk-width-1-1" type="submit">
-                                                Generate Payload
-                                            </button>
-                                        </div>
-                                    </div>
+                                        <!-- clear/ generate payload buttons -->
+                                        <div class="uk-grid uk-grid-small" uk-grid>
+                                            <div class="uk-width-1-2@l">
+                                                <button class="uk-button button button--default uk-width-1-1" type="button">
+                                                    Clear
+                                                </button>
+                                            </div>
 
-                                    <hr>
-
-                                    <!-- trigger webhook -->
-                                    <div class="trigger-webhook">
-                                        <label>Trigger Webhook: </label>
-                                        <div class="group-buttons uk-child-width-expand">
-                                            <button class="uk-button button button--soft button--md" type="submit">Approve</button>
-                                            <button class="uk-button button button--soft button--md" type="submit">Artwork</button>
-                                            <button class="uk-button button button--soft button--md" type="submit">Factory</button>
+                                            <div class="uk-width-1-2@l">
+                                                <button class="uk-button button button--primary uk-width-1-1" type="submit">
+                                                    Generate Payload
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
+
+                                        <hr>
+
+                                        <!-- trigger webhook -->
+                                        <div class="trigger-webhook">
+                                            <label>Trigger Webhook: </label>
+                                            <div class="group-buttons uk-child-width-expand">
+                                                <button class="uk-button button button--soft button--md" type="submit">Approve</button>
+                                                <button class="uk-button button button--soft button--md" type="submit">Artwork</button>
+                                                <button class="uk-button button button--soft button--md" type="submit">Factory</button>
+                                            </div>
+                                        </div>
+                                    </div>    
 
                                 </div>
                             </div>
@@ -667,6 +759,7 @@
                                     <div class="uk-grid-small uk-child-width-1-1" uk-grid>
                                         <div>
                                             <ul class="custom-tab uk-tab" uk-tab="connect: #tab-content-2">
+                                                <li class="uk-active"><a href="#">Generated Payload</a></li>
                                                 <li class="uk-active"><a href="#">Response</a></li>
                                             </ul>
                                         </div>
@@ -720,6 +813,13 @@
   }
 }
 </code></pre>
+                                                        </figure>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="section">
+                                                       <figure class="code-block">
+                                                            <pre><code class="language-json">Response</code></pre>
                                                         </figure>
                                                     </div>
                                                 </li>

@@ -9,35 +9,11 @@
 
     &--has-bg {
         padding: 16px;
-        background-color: #f2f3f5;
+        background-color: color(section-bg);
         // border: 1px solid color(border);
         border-radius: radius(md);
     }
-
-
-    figure,
-    pre {
-        margin: 0;
-    }
-
-    pre {
-        color: text(tertiary);
-        padding: 0px;
-        border-radius: 8px;
-        border: none;
-        overflow-x: auto;
-    }
-
-    code {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-        font-size: 13px;
-    }
 }
-
-.hljs {
-    background: #f2f3f5 !important;
-}
-
 
 
 
