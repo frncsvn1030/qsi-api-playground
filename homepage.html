@@ -41,6 +41,7 @@
                     </svg>
                     <span>Home</span>
                 </a>
+                <!-- Only Admin has this 'Send Invite' -->
                 <a class="nav-link" href="#invite-modal" uk-toggle>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -61,14 +62,23 @@
                     </svg>
                     <span>API</span>
                 </a>
-                <a class="nav-link sign-in" href="#signin-modal" uk-toggle>
+                <a class="nav-link" href="#signin-modal" uk-toggle>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21a8 8 0 0 0-16 0"></path>
+                        <circle cx="12" cy="8" r="4"></circle>
+                    </svg>
+                    <span>Admin</span>
+                </a>
+                <!-- For when the user hasn't logged in yet (only added 'sign-in class for style') -->
+                <!-- <a class="nav-link sign-in" href="#signin-modal" uk-toggle>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M20 21a8 8 0 0 0-16 0"></path>
                         <circle cx="12" cy="8" r="4"></circle>
                     </svg>
                     <span>Sign in</span>
-                </a>
+                </a> -->
             </div>
         </nav>
     </header>
