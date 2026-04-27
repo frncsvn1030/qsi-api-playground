@@ -17,12 +17,13 @@
 @use "./components/breadcrumb";
 @use "./components/tab";
 @use "./components/section";
-
+@use "./components/page";
 
 
 // layouts
 @use "./layouts/homepage";
 @use "./layouts/api-endpoint";
+@use "./layouts/code-block";
 
 
 
