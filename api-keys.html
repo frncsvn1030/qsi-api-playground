@@ -459,12 +459,50 @@
 
                                     <!-- Generate key button -->
                                     <div class="uk-margin-auto">
-                                        <button class="uk-button button button--default button--sm">
+                                        <button class="uk-button button button--default button--sm" uk-toggle="target: #generate-api-key-modal">
                                             <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" style="margin-right:6px; vertical-align:middle;">
                                                 <path d="M10 1v18M1 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                                             </svg>
                                             Generate Key
                                         </button>
+                                    </div>
+
+                                    <!-- Generate API Key Modal -->
+                                    <div id="generate-api-key-modal" uk-modal>
+                                        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical modal">
+                                            <button class="uk-modal-close-default" type="button" uk-close></button>
+                                            <h3 class="uk-modal-title title">Generate API Key</h3>
+
+                                            <form class="form">
+                                                <div class="form-section">
+                                                    <div class="form-input">
+                                                        <label>
+                                                            Application/ API Key Name <!-- <span class="required">*</span> -->
+                                                        </label>
+                                                        <div class="form-control">
+                                                            <input class="uk-input input" type="email" placeholder="Application/ API Key Name"/>
+                                                            <span class="form-validation">Validation text here.</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-input">
+                                                        <label>
+                                                            Environment <!-- <span class="required">*</span> -->
+                                                        </label>
+                                                        <div class="form-control">
+                                                            <select class="uk-select select">
+                                                                <option value="" disabled selected>Select an option</option>
+                                                                <option value="Staging">Staging</option>
+                                                                <option value="Production">Production</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-actions uk-child-width-expand">
+                                                    <button class="uk-button button button--primary" type="submit">Create Key</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>       
