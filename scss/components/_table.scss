@@ -1,0 +1,211 @@
+@use "../variables" as *;
+@use "../functions" as *;
+@use "../mixins" as *;
+
+
+/* ── Toolbar ── */
+.toolbar {
+    @include flex-between;
+    padding: 16px;
+    border-bottom: 1px solid color(border);
+    gap: 12px;
+
+    .left {
+        flex: 1;
+        min-width: 180px;
+        max-width: 230px;
+
+        .input {
+            width: 100%;
+        }
+    }
+
+    .right {
+        @include flex-vertical-center;
+        gap: 6px;
+
+        &.filters {
+            gap: 14px;
+        }
+
+        >div {
+            @include flex-vertical-center;
+        }
+
+        label {
+            font-size: font-size(xs);
+            font-weight: font-weight(regular);
+            color: text(secondary);
+            white-space: nowrap;
+        }
+
+        .select {
+            width: auto;
+            min-width: 140px;
+            max-width: 180px;
+        }
+
+        button {
+            height: 32px;
+            padding: 0px 13px;
+            font-size: font-size(xs);
+        }
+    }
+}
+
+/* ── Table Wrapper ── */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+
+        thead {
+            background-color: gray(50);
+            border-bottom: 1px solid color(border);
+
+            .table-header {
+                .col-label {
+                    padding: 12px 16px;
+                    text-align: left;
+                    font-size: 11px;
+                    font-weight: 600;
+                    letter-spacing: 0.08em;
+                    color: gray(450);
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        tbody {
+            .table-row {
+                border-bottom: 1px solid #f0f0f0;
+                cursor: pointer;
+
+                &:hover {
+                    background: color(light-hover);
+                }
+
+                &:has(.ui-radio:checked) {
+                    background: color(hover);
+                }
+
+                .cell {
+                    padding: 12px 16px;
+                    font-size: 13px;
+                    color: color(550);
+                    text-align: left;
+                    white-space: normal;
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
+
+                    &.bold {
+                        font-weight: font-weight(bold);
+                        color: color(primary);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ── Radio ── */
+.ui-radio {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid gray(300);
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+
+    &:checked {
+        border-color: color(primary);
+        background: color(primary);
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: color(white);
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+/* ── Pagination ── */
+.pagination {
+    @include flex-center;
+    gap: gap(2xl);
+    padding: 14px 16px;
+    // border-top: 1px solid #f0f0f0;
+
+    .pag-btn {
+        font-family: inherit;
+        font-size: font-size(13px);
+        color: #888;
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        &:disabled {
+            color: #ccc;
+            cursor: default;
+        }
+    }
+
+    .pag-info {
+        font-size: font-size(13px);
+        font-weight: font-weight(medium);
+        color: #333;
+    }
+}
+
+
+
+/* ── Semi Responsive ── */
+@media (max-width: 1280px) {
+    .toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: gap(2xl);
+
+        .left {
+            width: 100%;
+            max-width: none;
+            min-width: 200px;
+        }
+
+        .right {
+            width: 100%;
+            align-items: flex-start;
+            gap: gap(xl);
+
+            >div {
+                width: 100%;
+            }
+
+            .select {
+                width: 100%;
+                min-width: unset;
+                max-width: unset;
+            }
+        }
+    }
+}
+
+@media (max-width: 690px) {
+    .toolbar {
+        .right {
+            flex-direction: column;
+        }
+    }
+}

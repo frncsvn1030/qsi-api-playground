@@ -3,7 +3,8 @@
 @use "../mixins" as *;
 
 
-.api-endpoint {
+.api-endpoint, 
+.orders-page {
 
     .topbar {
         margin-bottom: 20px;

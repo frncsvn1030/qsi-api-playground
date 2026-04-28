@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/js/uikit-icons.min.js"></script>
+    
+    <script src="/js/password-toggle.js" defer></script>
+    <script src="/js/roster-modal.js" defer></script>
+    <script src="/js/sidebar-toggle.js" defer></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+    <!-- CDN style for code block -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script> -->
+
+</head>
+<body>
+
+    <div class="layout-wrap">
+        <!------------------------- Sidebar ---------------------------->
+        <aside class="sidebar open" id="sidebar">
+            <nav class="sidebar-nav">
+                <!-- logo -->
+                <div class="sidebar-brand">
+                    <a href="#">
+                        <div class="nav-logo"><img src="/images/logos/qx-logo.png" width="40"></div>
+                    </a>
+                    <h4>QSI Open API <span>Playground</span></h4>
+
+                    <!-- keep but ignore for now -->
+                    <button class="sidebar-close" id="sidebarClose" uk-icon="icon: close; ratio: 1.2"></button>
+                </div>
+
+                <!-- menu -->
+                <ul class="s-section">
+                    <li>
+                        <a class="s-item" href="#">
+                            <span class="left">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21a8 8 0 0 0-16 0"/>
+                                    <circle cx="12" cy="8" r="4"/>
+                                </svg>
+                                My Profile
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="s-item" href="#">
+                            <span class="left">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="8" cy="8" r="5"/>
+                                    <path d="M13 8 L21 8"/>
+                                    <path d="M17 8 L17 11"/>
+                                    <path d="M20 8 L20 10"/>
+                                </svg>
+                                Application Token Manager
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="s-item active" href="#">
+                            <span class="left">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                                Orders
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!------------------------- Header + Main Content (Wrapped inside .body-wrap class) ---------------------------->
+        <div class="body-wrap">
+
+            <header class="uk-flex uk-flex-middle">
+                <nav class="uk-width-expand uk-padding-small">
+                    <div class="uk-flex uk-flex-vertical-center">
+
+                        <button class="hamburger uk-margin-right" id="sidebar-toggle">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5" y="5" width="90" height="90" rx="14" fill="none" stroke="black" stroke-width="7"/>
+                                <line x1="72" y1="5" x2="72" y2="95" stroke="black" stroke-width="6"/>
+                            </svg>
+                        </button>
+
+                        <a href="#">
+                            <div class="nav-logo">
+                                <img src="/images/logos/qx-logo.png">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-links">
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 10.5L12 3l9 7.5"/>
+                                <path d="M5 10v10h14V10"/>
+                                <path d="M9 21v-6h6v6"/>
+                            </svg>
+                            <span>Home</span>
+                        </a>
+                        <!-- Only Admin has this 'Send Invite' -->
+                        <!-- <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                            <span>Send Invite</span>
+                        </a> -->
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="4" y="4" width="6" height="6" rx="1"/>
+                                <rect x="14" y="4" width="6" height="6" rx="1"/>
+                                <rect x="9" y="14" width="6" height="6" rx="1"/>
+                            </svg>
+                            <span>API</span>
+                        </a>
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21a8 8 0 0 0-16 0"/>
+                                <circle cx="12" cy="8" r="4"/>
+                            </svg>
+                            <span>Test User</span>
+                        </a>
+                    </div>
+                </nav>
+            </header>
+
+            <section class="main-content" uk-height-viewport="offset-top: true;">
+                <div class="container-custom">
+
+                    <!-- Orders page content starts here -->
+                    <div class="orders-page">
+
+                        <div class="page-header">
+                            <h4 class="page-title">Orders</h4>
+                            <p class="page-subtitle">Orders shown on this table are only available for 24 hours.</p>
+                        </div>
+
+                        <div class="uk-grid-small" uk-grid>
+
+                            <!---------- Left Card ---------->
+                            <div class="uk-width-1-2@l">
+                                <div class="card uk-padding-remove">
+                                    <div class="toolbar">
+                                        <!-- Search -->
+                                        <div class="left">
+                                            <input class="uk-input input is-sm" type="text" placeholder="Search..." />
+                                        </div>
+
+                                        <div class="right uk-child-width-expand">
+                                            <button class="uk-button button button--default">Approve</button>
+                                            <button class="uk-button button button--default">Artwork</button>
+                                            <button class="uk-button button button--default">Factory</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="table-wrapper">
+                                        <table class="table">
+                                            <thead>
+                                                <tr class="table-header">
+                                                    <th class="col-label">Select</th>
+                                                    <th class="col-label">Order #</th>
+                                                    <th class="col-label">Part #</th>
+                                                    <th class="col-label">Status #</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table-row">
+                                                    <td class="cell">
+                                                        <input type="radio" name="row-select" class="ui-radio">
+                                                    </td>
+                                                    <td class="cell">Sample</td>
+                                                    <td class="cell">Sample</td>
+                                                    <td class="cell">Sample</td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="cell">
+                                                        <input type="radio" name="row-select" class="ui-radio">
+                                                    </td>
+                                                    <td class="cell">Sample</td>
+                                                    <td class="cell">Sample</td>
+                                                    <td class="cell">Sample</td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="cell">
+                                                        <input type="radio" name="row-select" class="ui-radio">
+                                                    </td>
+                                                    <td class="cell">Sample</td>
+                                                    <td class="cell">Sample</td>
+                                                    <td class="cell">Sample</td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="cell">
+                                                        <input type="radio" name="row-select" class="ui-radio">
+                                                    </td>
+                                                    <td class="cell">Sample</td>
+                                                    <td class="cell">Sample</td>
+                                                    <td class="cell">Sample</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="pagination">
+                                        <button class="pag-btn" id="prev-btn" disabled>&lt; Prev</button>
+                                        <span class="pag-info" id="page-info">1 / 1</span>
+                                        <button class="pag-btn" id="next-btn">Next &gt;</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!---------- Right Card ---------->
+                            <div class="uk-width-expand@l">
+                                <div class="card">
+
+                                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                        <div class="uk-width-auto uk-width-expand@m">
+                                            <div class="response-bar">
+                                                <!-- 200 OK badge -->
+                                                <span class="status-badge status-badge--success">
+                                                    <span class="status-dot"></span>
+                                                    200 OK
+                                                </span>
+                                            
+                                                <div class="divider"></div>
+                                            
+                                                <!-- Clock / Status -->
+                                                <span class="status-item">
+                                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2"
+                                                        stroke-linecap="round" stroke-linejoin="round">
+                                                        <circle cx="12" cy="12" r="10"/>
+                                                        <polyline points="12 6 12 12 16 14"/>
+                                                    </svg>
+                                                    Status
+                                                </span>
+                                            
+                                                <div class="divider"></div>
+                                            
+                                                <!-- File size -->
+                                                <span class="size-badge">
+                                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2"
+                                                        stroke-linecap="round" stroke-linejoin="round">
+                                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                        <polyline points="14 2 14 8 20 8"/>
+                                                    </svg>
+                                                    2.3 KB
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="uk-width-auto@m">
+                                            <button class="uk-button button button--default button--sm">
+                                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2.2"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    
+                                                    <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+                                                    
+                                                    <path d="M5 15V5a2 2 0 0 1 2-2h10"></path>
+                                                </svg>
+                                                Copy
+                                            </button>
+                                            <button class="uk-button button button--default button--sm">
+                                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2.2"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                                    <polyline points="7 10 12 15 17 10"/>
+                                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                                </svg>
+                                                Export
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- switcher tab -->
+                                    <div class="uk-grid-small uk-child-width-1-1" uk-grid>
+                                        <div>
+                                            <ul class="custom-tab uk-tab" uk-tab="connect: #tab-content-2">
+                                                <li class="uk-active"><a href="#">Generated Payload</a></li>
+                                                <li class="uk-active"><a href="#">Response</a></li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <ul id="tab-content-2" class="uk-switcher">
+                                                <li>
+                                                    <div class="section">
+                                                        <figure class="code-block">
+<pre><code class="language-json">{
+  "success": true,
+  "status": 200,
+  "data": {
+    "id": 63,
+    "brand_style_name": "PINSTRIPE",
+    "product_name": "Sublimated Crew Neck Jersey",
+    "master_brand": {
+      "id": 63,
+      "brand": "Perfect Brand",
+      "brand_code": "PB"
+    }
+  }
+}
+
+{
+  "success": true,
+  "status": 200,
+  "data": {
+    "id": 63,
+    "brand_style_name": "PINSTRIPE",
+    "product_name": "Sublimated Crew Neck Jersey",
+    "master_brand": {
+      "id": 63,
+      "brand": "Perfect Brand",
+      "brand_code": "PB"
+    }
+  }
+}
+
+{
+  "success": true,
+  "status": 200,
+  "data": {
+    "id": 63,
+    "brand_style_name": "PINSTRIPE",
+    "product_name": "Sublimated Crew Neck Jersey",
+    "master_brand": {
+      "id": 63,
+      "brand": "Perfect Brand",
+      "brand_code": "PB"
+    }
+  }
+}
+</code></pre>
+                                                        </figure>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="section">
+                                                       <figure class="code-block">
+                                                            <pre><code class="language-json">Response</code></pre>
+                                                        </figure>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>  
+    </div>
+    
+    <script>
+        // Clicking the row will check the radio
+        document.addEventListener('DOMContentLoaded', function() {
+            const rows = document.querySelectorAll('.table-row');
+            rows.forEach(row => {
+                row.addEventListener('click', function() {
+                    const radio = this.querySelector('.ui-radio');
+                    if (radio) {
+                        radio.checked = true;
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

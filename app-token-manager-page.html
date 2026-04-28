@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Token Manager</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/js/uikit-icons.min.js"></script>
+
+    <script src="/js/password-toggle.js" defer></script>
+    <script src="/js/roster-modal.js" defer></script>
+    <script src="/js/sidebar-toggle.js" defer></script>
+    <script src="/js/table-pagination.js" defer></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+    <!-- CDN style for code block -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script> -->
+
+</head>
+
+<body>
+
+    <div class="layout-wrap">
+        <!------------------------- Sidebar ---------------------------->
+        <aside class="sidebar open" id="sidebar">
+            <nav class="sidebar-nav">
+                <!-- logo -->
+                <div class="sidebar-brand">
+                    <a href="#">
+                        <div class="nav-logo"><img src="/images/logos/qx-logo.png" width="40"></div>
+                    </a>
+                    <h4>QSI Open API <span>Playground</span></h4>
+
+                    <!-- keep but ignore for now -->
+                    <button class="sidebar-close" id="sidebarClose" uk-icon="icon: close; ratio: 1.2"></button>
+                </div>
+
+                <!-- menu -->
+                <ul class="s-section">
+                    <li>
+                        <a class="s-item" href="#">
+                            <span class="left">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21a8 8 0 0 0-16 0"/>
+                                    <circle cx="12" cy="8" r="4"/>
+                                </svg>
+                                My Profile
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="s-item active" href="#">
+                            <span class="left">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="8" cy="8" r="5"/>
+                                    <path d="M13 8 L21 8"/>
+                                    <path d="M17 8 L17 11"/>
+                                    <path d="M20 8 L20 10"/>
+                                </svg>
+                                Application Token Manager
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="s-item" href="#">
+                            <span class="left">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                                Orders
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!------------------------- Header + Main Content (Wrapped inside .body-wrap class) ---------------------------->
+        <div class="body-wrap">
+
+            <header class="uk-flex uk-flex-middle">
+                <nav class="uk-width-expand uk-padding-small">
+                    <div class="uk-flex uk-flex-vertical-center">
+
+                        <button class="hamburger uk-margin-right" id="sidebar-toggle">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5" y="5" width="90" height="90" rx="14" fill="none" stroke="black"
+                                    stroke-width="7" />
+                                <line x1="72" y1="5" x2="72" y2="95" stroke="black" stroke-width="6" />
+                            </svg>
+                        </button>
+
+                        <a href="#">
+                            <div class="nav-logo">
+                                <img src="/images/logos/qx-logo.png">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-links">
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M3 10.5L12 3l9 7.5" />
+                                <path d="M5 10v10h14V10" />
+                                <path d="M9 21v-6h6v6" />
+                            </svg>
+                            <span>Home</span>
+                        </a>
+                        <!-- Only Admin has this 'Send Invite' -->
+                        <!-- <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                            <span>Send Invite</span>
+                        </a> -->
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="4" y="4" width="6" height="6" rx="1" />
+                                <rect x="14" y="4" width="6" height="6" rx="1" />
+                                <rect x="9" y="14" width="6" height="6" rx="1" />
+                            </svg>
+                            <span>API</span>
+                        </a>
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M20 21a8 8 0 0 0-16 0" />
+                                <circle cx="12" cy="8" r="4" />
+                            </svg>
+                            <span>Test User</span>
+                        </a>
+                    </div>
+                </nav>
+            </header>
+
+            <section class="main-content" uk-height-viewport="offset-top: true;">
+                <div class="container-custom">
+
+                    <div class="app-token-manager-page">
+                        <div class="page-header">
+                            <h4 class="page-title">Application Token Manager</h4>
+                            <p class="page-subtitle">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum nihil dolor impedit.</p>
+                        </div>
+
+                        <!-- Table -->
+                        <div class="card uk-padding-remove">
+                            <div class="toolbar">
+                                <!-- Search -->
+                                <div class="left">
+                                    <input class="uk-input input is-sm" type="text" placeholder="Search..." />
+                                </div>
+
+                                <!-- Filters -->
+                                <div class="right filters">
+                                    <div class="uk-flex uk-flex-middle">
+                                        <label class="uk-margin-small-right">Dealer:</label>
+                                        <select class="uk-select select is-sm">
+                                            <option value="">All Dealers</option>
+                                        </select>
+                                    </div>
+                                    <div class="uk-flex uk-flex-middle">
+                                        <label class="uk-margin-small-right">Brand:</label>
+                                        <select class="uk-select select is-sm">
+                                            <option value="">All Brands</option>
+                                            <option value="active">PROLOOK</option>
+                                        </select>
+                                    </div>
+                                    <div class="uk-flex uk-flex-middle">
+                                        <label class="uk-margin-small-right">Status:</label>
+                                        <select class="uk-select select is-sm">
+                                            <option value="">All Status</option>
+                                            <option value="active">Active</option>
+                                            <option value="inactive">Inactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-wrapper">
+                                <table class="table" style="min-width: 800px;">
+                                    <thead>
+                                        <tr class="table-header">
+                                            <!-- <th class="ui-col-label">Select</th> -->
+                                            <th class="col-label">Dealer</th>
+                                            <th class="col-label">Brand</th>
+                                            <th class="col-label">App Name</th>
+                                            <th class="col-label">App Domain</th>
+                                            <th class="col-label">Email</th>
+                                            <th class="col-label">Last Used</th>
+                                            <th class="col-label">Active</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="table-row">
+                                            <!-- <td class="ui-cell">
+                                                <input type="radio" name="row-select" class="ui-radio">
+                                            </td> -->
+                                            <td class="cell"></td>
+                                            <td class="cell">PROLOOK</td>
+                                            <td class="cell">QStrike</td>
+                                            <td class="cell">www.example.com</td>
+                                            <td class="cell">josh@prolook.com</td>
+                                            <td class="cell">2023-10-18 04:19:00</td>
+                                            <td class="cell">
+                                                <label class="toggle toggle-md">
+                                                    <input type="checkbox" name="production-toggle">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <!-- <td class="ui-cell">
+                                                <input type="radio" name="row-select" class="ui-radio">
+                                            </td> -->
+                                            <td class="cell"></td>
+                                            <td class="cell">PROLOOK</td>
+                                            <td class="cell">QStrike</td>
+                                            <td class="cell">www.example.com</td>
+                                            <td class="cell">josh@prolook.com</td>
+                                            <td class="cell">2023-10-18 04:19:00</td>
+                                            <td class="cell">
+                                                <label class="toggle toggle-md">
+                                                    <input type="checkbox" name="production-toggle">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <!-- <td class="ui-cell">
+                                                <input type="radio" name="row-select" class="ui-radio">
+                                            </td> -->
+                                            <td class="cell"></td>
+                                            <td class="cell">PROLOOK</td>
+                                            <td class="cell">QStrike</td>
+                                            <td class="cell">www.example.com</td>
+                                            <td class="cell">josh@prolook.com</td>
+                                            <td class="cell">2023-10-18 04:19:00</td>
+                                            <td class="cell">
+                                                <label class="toggle toggle-md">
+                                                    <input type="checkbox" name="production-toggle">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <!-- <td class="ui-cell">
+                                                <input type="radio" name="row-select" class="ui-radio">
+                                            </td> -->
+                                            <td class="cell"></td>
+                                            <td class="cell">PROLOOK</td>
+                                            <td class="cell">QStrike</td>
+                                            <td class="cell">www.example.com</td>
+                                            <td class="cell">josh@prolook.com</td>
+                                            <td class="cell">2023-10-18 04:19:00</td>
+                                            <td class="cell">
+                                                <label class="toggle toggle-md">
+                                                    <input type="checkbox" name="production-toggle">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <!-- <td class="ui-cell">
+                                                <input type="radio" name="row-select" class="ui-radio">
+                                            </td> -->
+                                            <td class="cell"></td>
+                                            <td class="cell">PROLOOK</td>
+                                            <td class="cell">QStrike</td>
+                                            <td class="cell">www.example.com</td>
+                                            <td class="cell">josh@prolook.com</td>
+                                            <td class="cell">2023-10-18 04:19:00</td>
+                                            <td class="cell">
+                                                <label class="toggle toggle-md">
+                                                    <input type="checkbox" name="production-toggle">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <!-- <td class="ui-cell">
+                                                <input type="radio" name="row-select" class="ui-radio">
+                                            </td> -->
+                                            <td class="cell"></td>
+                                            <td class="cell">PROLOOK</td>
+                                            <td class="cell">QStrike</td>
+                                            <td class="cell">www.example.com</td>
+                                            <td class="cell">josh@prolook.com</td>
+                                            <td class="cell">2023-10-18 04:19:00</td>
+                                            <td class="cell">
+                                                <label class="toggle toggle-md">
+                                                    <input type="checkbox" name="production-toggle">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <!-- <td class="ui-cell">
+                                                <input type="radio" name="row-select" class="ui-radio">
+                                            </td> -->
+                                            <td class="cell"></td>
+                                            <td class="cell">PROLOOK</td>
+                                            <td class="cell">QStrike</td>
+                                            <td class="cell">www.example.com</td>
+                                            <td class="cell">josh@prolook.com</td>
+                                            <td class="cell">2023-10-18 04:19:00</td>
+                                            <td class="cell">
+                                                <label class="toggle toggle-md">
+                                                    <input type="checkbox" name="production-toggle">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <!-- <td class="ui-cell">
+                                                <input type="radio" name="row-select" class="ui-radio">
+                                            </td> -->
+                                            <td class="cell"></td>
+                                            <td class="cell">PROLOOK</td>
+                                            <td class="cell">QStrike</td>
+                                            <td class="cell">www.example.com</td>
+                                            <td class="cell">josh@prolook.com</td>
+                                            <td class="cell">2023-10-18 04:19:00</td>
+                                            <td class="cell">
+                                                <label class="toggle toggle-md">
+                                                    <input type="checkbox" name="production-toggle">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <!-- <td class="ui-cell">
+                                                <input type="radio" name="row-select" class="ui-radio">
+                                            </td> -->
+                                            <td class="cell"></td>
+                                            <td class="cell">PROLOOK</td>
+                                            <td class="cell">QStrike</td>
+                                            <td class="cell">www.example.com</td>
+                                            <td class="cell">josh@prolook.com</td>
+                                            <td class="cell">2023-10-18 04:19:00</td>
+                                            <td class="cell">
+                                                <label class="toggle toggle-md">
+                                                    <input type="checkbox" name="production-toggle">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <!-- <td class="ui-cell">
+                                                <input type="radio" name="row-select" class="ui-radio">
+                                            </td> -->
+                                            <td class="cell"></td>
+                                            <td class="cell">PROLOOKs</td>
+                                            <td class="cell">QStrike</td>
+                                            <td class="cell">www.example.com</td>
+                                            <td class="cell">josh@prolook.com</td>
+                                            <td class="cell">2023-10-18 04:19:00</td>
+                                            <td class="cell">
+                                                <label class="toggle toggle-md">
+                                                    <input type="checkbox" name="production-toggle">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <!-- <td class="ui-cell">
+                                                <input type="radio" name="row-select" class="ui-radio">
+                                            </td> -->
+                                            <td class="cell"></td>
+                                            <td class="cell">PROLOOK</td>
+                                            <td class="cell">QStrike</td>
+                                            <td class="cell">www.example.com</td>
+                                            <td class="cell">josh@prolook.com</td>
+                                            <td class="cell">2023-10-18 04:19:00</td>
+                                            <td class="cell">
+                                                <label class="toggle toggle-md">
+                                                    <input type="checkbox" name="production-toggle">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="pagination">
+                                <button class="pag-btn" id="prev-btn" disabled>&lt; Prev</button>
+                                <span class="pag-info" id="page-info">1 / 1</span>
+                                <button class="pag-btn" id="next-btn">Next &gt;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </div>
+</body>
+
+</html>
