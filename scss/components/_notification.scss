@@ -1,0 +1,50 @@
+@use "../variables" as *;
+@use "../functions" as *;
+@use "../mixins" as *;
+
+.notification {
+	& .title {
+		font-family: $inter-regular;
+		font-size: font-size(base);
+        font-weight: font-weight(bold);
+		color: text(primary);
+	}
+
+	& .body {
+		font-family: $inter-regular;
+        font-size: font-size(sm);
+		color: text(primary);
+	}
+
+	&.notification {
+		&-success {
+			color: text(success);
+			border-left: 3px solid text(success);
+
+			& .title,
+			& .body {
+				color: text(success);
+			}
+		}
+
+		&-danger {
+			color: text(error);
+			border-left: 3px solid text(error);
+
+			& .title,
+			& .body {
+				color: text(error);
+			}
+		}
+
+		&-warning {
+			color: text(warning);
+			border-left: 3px solid text(warning);
+
+			& .title,
+			& .body {
+				color: text(warning);
+			}
+		}
+	}
+}
