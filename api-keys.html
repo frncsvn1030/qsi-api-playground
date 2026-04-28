@@ -50,9 +50,9 @@
                     <button class="sidebar-close" id="sidebarClose" uk-icon="icon: close; ratio: 1.2"></button>
                 </div>
 
-                <!-- selections -->
+                <!-- menu -->
                 <ul class="s-section">
-                    <!-- Accordions -->
+                    <!-- accordions are grouped/shared the same parent -->
                     <li>
                         <ul class="uk-accordion" uk-accordion="multiple: false">
 
@@ -61,7 +61,13 @@
                                 <!-- Main Accordion -->
                                 <a class="uk-accordion-title s-item">
                                     <span class="left">
-                                        <img src="./images/icons/document-chart-bar.svg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M6 2 L14 2 L20 8 L20 22 Q20 22 19 22 L5 22 Q4 22 4 21 L4 3 Q4 2 6 2 Z"/>
+                                            <path d="M14 2 L14 8 L20 8"/>
+                                            <line x1="8" y1="13" x2="16" y2="13"/>
+                                            <line x1="8" y1="17" x2="16" y2="17"/>
+                                            <line x1="8" y1="9"  x2="11" y2="9"/>
+                                        </svg>
                                         Documentation
                                     </span>
                                     <span uk-icon="chevron-down"></span>
@@ -124,7 +130,9 @@
                                 <!-- Main Accordion -->
                                 <a class="uk-accordion-title s-item" href="#api-endpoint">
                                     <span class="left">
-                                        <img src="./images/icons/bolt.svg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="15 2 6 13 12 13 9 22 18 11 12 11 15 2"/>
+                                        </svg>
                                         API Endpoint
                                     </span>
                                     <span uk-icon="chevron-down"></span>
@@ -151,11 +159,17 @@
                         </ul>
                     </li>
 
-                    <!-- API Keys (separate, safe) -->
+                    <!-- API Keys -->
+                    <!-- NOTE: If the user hasn't generate his API keys, clicking 'API Keys' in the sidebar will direct them back to the 'Generate API Key Page' -->
                     <li>
                         <a class="s-item active" href="#api-keys">
                             <span class="left">
-                                <img src="./images/icons/key.svg">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="8" cy="8" r="5"/>
+                                    <path d="M13 8 L21 8"/>
+                                    <path d="M17 8 L17 11"/>
+                                    <path d="M20 8 L20 10"/>
+                                </svg>
                                 API Keys
                             </span>
                         </a>
